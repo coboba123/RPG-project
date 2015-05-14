@@ -10,7 +10,7 @@ public interface Character
 
 	public String getName();
 
-	public String setName();
+	public void setName();
 
 	public int getHP();
 
@@ -27,4 +27,6 @@ public interface Character
 	public int addMP(int mp);
 
 	public int subMP(int mp);
+	
+	public int getBadassery();
 }
