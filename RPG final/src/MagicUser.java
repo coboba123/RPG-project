@@ -3,7 +3,7 @@
  */
 
 /**
- * @author Daniel
+ * @author danielzhang
  *
  */
 public class MagicUser implements Character
@@ -11,12 +11,14 @@ public class MagicUser implements Character
 	private String name;
 	private int HP;
 	private int MP;
+	private int damage;
 	
 	public MagicUser(String myName)
 	{	
 		name = myName;
 		HP = 80;
 		MP = 50;
+		damage = 10;
 	}
 	/* (non-Javadoc)
 	 * @see Character#getName()
@@ -118,4 +120,12 @@ public class MagicUser implements Character
 		MP -= myMP;
 	}
 
+	@Override
+	public boolean isDead()
+	{
+		if (HP =< 0)
+			return true;
+		else
+			return false;
+	}
 }
