@@ -7,25 +7,26 @@
  */
 public interface Character
 {
+	
 
 	public String getName();
 
-	public void setName();
+	public void setName(String myName);
 
 	public int getHP();
 
-	public int setHP();
+	public void setHP(int myHP);
 
-	public int addHP(int hp);
+	public void addHP(int myHP);
 
-	public int subHP(int hp);
+	public void subHP(int myHP);
 
 	public int getMP();
 
-	public int setMP();
+	public void setMP(int myMP);
 
-	public int addMP(int mp);
+	public void addMP(int myMP);
 
-	public int subMP(int mp);
+	public void subMP(int myMP);
 	
 }

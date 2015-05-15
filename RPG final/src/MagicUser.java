@@ -3,12 +3,21 @@
  */
 
 /**
- * @author Cody
+ * @author Daniel
  *
  */
 public class MagicUser implements Character
 {
-
+	private String name;
+	private int HP;
+	private int MP;
+	
+	public MagicUser(String myName)
+	{	
+		name = myName;
+		HP = 80;
+		MP = 50;
+	}
 	/* (non-Javadoc)
 	 * @see Character#getName()
 	 */
@@ -16,17 +25,17 @@ public class MagicUser implements Character
 	public String getName()
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	/* (non-Javadoc)
 	 * @see Character#setName()
 	 */
 	@Override
-	public void setName()
+	public void setName(String myName)
 	{
 		// TODO Auto-generated method stub
-		
+		name = myName;		
 	}
 
 	/* (non-Javadoc)
@@ -36,37 +45,37 @@ public class MagicUser implements Character
 	public int getHP()
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return HP;
 	}
 
 	/* (non-Javadoc)
 	 * @see Character#setHP()
 	 */
 	@Override
-	public int setHP()
+	public void setHP(int myHP)
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		HP = myHP;
 	}
 
 	/* (non-Javadoc)
 	 * @see Character#addHP(int)
 	 */
 	@Override
-	public int addHP(int hp)
+	public void addHP(int myHP)
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		HP += myHP;
 	}
 
 	/* (non-Javadoc)
 	 * @see Character#subHP(int)
 	 */
 	@Override
-	public int subHP(int hp)
+	public void subHP(int myHP)
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		HP -= hp;
 	}
 
 	/* (non-Javadoc)
@@ -76,37 +85,37 @@ public class MagicUser implements Character
 	public int getMP()
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return MP;
 	}
 
 	/* (non-Javadoc)
 	 * @see Character#setMP()
 	 */
 	@Override
-	public int setMP()
+	public void setMP(int myMP)
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		MP = myMP;
 	}
 
 	/* (non-Javadoc)
 	 * @see Character#addMP(int)
 	 */
 	@Override
-	public int addMP(int mp)
+	public void addMP(int myMP)
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		MP += myMP;
 	}
 
 	/* (non-Javadoc)
 	 * @see Character#subMP(int)
 	 */
 	@Override
-	public int subMP(int mp)
+	public void subMP(int myMP)
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		MP -= myMP;
 	}
 
 }
