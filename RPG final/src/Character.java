@@ -28,6 +28,4 @@ public interface Character
 
 	public int subMP(int mp);
 	
-	public int badassery();
-	
 }
