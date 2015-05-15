@@ -77,7 +77,7 @@ public class MagicUser implements Character
 	public void subHP(int myHP)
 	{
 		// TODO Auto-generated method stub
-		HP -= hp;
+		HP -= myHP;
 	}
 
 	/* (non-Javadoc)
