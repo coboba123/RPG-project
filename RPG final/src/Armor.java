@@ -3,7 +3,7 @@
  */
 
 /**
- * @author Cody
+ * @author Cody and Alex
  *
  */
 public class Armor extends Equipment
