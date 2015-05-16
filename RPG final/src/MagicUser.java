@@ -123,7 +123,7 @@ public class MagicUser implements Character
 	@Override
 	public boolean isDead()
 	{
-		if (HP =< 0)
+		if (HP <= 0)
 			return true;
 		else
 			return false;

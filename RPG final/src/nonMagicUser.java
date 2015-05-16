@@ -111,7 +111,7 @@ public class nonMagicUser implements Character {
 	
 	public boolean isDead()
 	{
-		if (HP =< 0)
+		if (HP <= 0)
 			return true;
 		else
 			return false;
