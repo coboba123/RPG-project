@@ -28,10 +28,6 @@ public interface Character
 
 	public void subMP(int myMP);
 	
-	public int getDamage();
-	
-	public void setDamage();
-	
 	public boolean isDead();
 	
 }
