@@ -3,21 +3,23 @@
  */
 
 /**
- * @author Cody
+ * @author Cody and Daniel
  *
  */
-public class Weapon extends Equipment
+public class Weapon implements Item
 {
 
 	/* (non-Javadoc)
 	 * @see Item#setName(java.lang.String)
 	 */
 	
-	public int attValue;
+	private String myName;
+	private int attValue;
+	
 	public void setName(String name)
 	{
 		// TODO Auto-generated method stub
-
+		myName = name;
 	}
 
 	/* (non-Javadoc)
@@ -27,18 +29,18 @@ public class Weapon extends Equipment
 	public String getName()
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return myName;
 	}
 	
 	public int getAtt()
 	{
 		//TODO
-		return 0;
+		return attValue;
 	}
 	
-	public void setAtt()
+	public void setAtt(int value)
 	{
-		//TODO
+		attValue = value;
 	}
 
 }

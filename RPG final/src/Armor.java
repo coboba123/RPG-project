@@ -3,21 +3,23 @@
  */
 
 /**
- * @author Cody and Alex
+ * @author Cody and Alex and Daniel
  *
  */
-public class Armor extends Equipment
+public class Armor implements Item
 {
 
 	/* (non-Javadoc)
 	 * @see Item#setName(java.lang.String)
 	 */
+	private String myName;
 	private int defValue;
+	
 	@Override
 	public void setName(String name)
 	{
 		// TODO Auto-generated method stub
-
+		myName = name;
 	}
 
 	/* (non-Javadoc)
@@ -27,19 +29,19 @@ public class Armor extends Equipment
 	public String getName()
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return myName;
 	}
 	
 	public int getDef()
 	{
 		// TODO
-		return 0;
+		return defValue;
 	}
 	
-	public void setDef(int def)
+	public void setDef(int value)
 	{
 		//TODO
-		
+		defValue
 	
 	}
 
