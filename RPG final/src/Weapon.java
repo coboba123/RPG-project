@@ -16,6 +16,12 @@ public class Weapon implements Item
 	private String myName;
 	private int attValue;
 	
+	public Weapon(String name, int att)
+	{
+		myName = name;
+		attValue = att;
+	}
+	
 	public void setName(String name)
 	{
 		// TODO Auto-generated method stub
@@ -38,9 +44,9 @@ public class Weapon implements Item
 		return attValue;
 	}
 	
-	public void setAtt(int value)
+	public void setAtt(int att)
 	{
-		attValue = value;
+		attValue = att;
 	}
 
 }

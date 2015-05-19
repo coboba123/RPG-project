@@ -15,6 +15,12 @@ public class Armor implements Item
 	private String myName;
 	private int defValue;
 	
+	public Armor (String name, int def)
+	{
+		myName = name;
+		defValue = def;
+	}
+	
 	@Override
 	public void setName(String name)
 	{
@@ -38,10 +44,10 @@ public class Armor implements Item
 		return defValue;
 	}
 	
-	public void setDef(int value)
+	public void setDef(int def)
 	{
 		//TODO
-		defValue
+		defValue = def;
 	
 	}
 
