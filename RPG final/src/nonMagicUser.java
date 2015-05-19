@@ -11,13 +11,11 @@ public class nonMagicUser implements Character {
 	private String name;
 	private int HP;
 	private int MP;
-	private int damage;
 	
 	public nonMagicUser(String myName){
 		name = myName;
 		HP = 100;
 		MP = 0;
-		damage = 10;
 	}
 	/* (non-Javadoc)
 	 * @see Character#getName()

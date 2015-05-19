@@ -24,7 +24,6 @@ public class Weapon implements Item
 	
 	public void setName(String name)
 	{
-		// TODO Auto-generated method stub
 		myName = name;
 	}
 
@@ -34,13 +33,11 @@ public class Weapon implements Item
 	@Override
 	public String getName()
 	{
-		// TODO Auto-generated method stub
 		return myName;
 	}
 	
 	public int getAtt()
 	{
-		//TODO
 		return attValue;
 	}
 	

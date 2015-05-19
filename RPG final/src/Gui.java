@@ -2,7 +2,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
+
 import java.awt.TextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -65,17 +67,16 @@ public class Gui
 		btnEast.setBounds(621, 372, 125, 40);
 		frame.getContentPane().add(btnEast);
 
-		TextArea textArea1 = new TextArea();
+		JTextArea textArea1 = new JTextArea();
 		textArea1.setText("Welcome to the game");
 		textArea1.setEditable(false);
 		textArea1.setBounds(10, 10, 764, 291);
 		frame.getContentPane().add(textArea1);
 
 		JButton btnNorth = new JButton("North");
-		btnNorth.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent evt)
-			{
+		btnNorth.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				textArea1.setText("hello");
 			}
 		});
@@ -84,4 +85,5 @@ public class Gui
 		frame.getContentPane().add(btnNorth);
 
 	}
+
 }
