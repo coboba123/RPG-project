@@ -1,15 +1,14 @@
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
-
-import java.awt.TextArea;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+
 
 public class Gui
 {
@@ -74,16 +73,14 @@ public class Gui
 		frame.getContentPane().add(textArea1);
 
 		JButton btnNorth = new JButton("North");
-		btnNorth.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				textArea1.setText("hello");
+		btnNorth.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea1.setText("");
 			}
 		});
-
 		btnNorth.setBounds(486, 321, 125, 40);
 		frame.getContentPane().add(btnNorth);
-
 	}
-
+	
+	
 }

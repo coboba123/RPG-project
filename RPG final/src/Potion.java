@@ -24,7 +24,7 @@ public class Potion implements Item {
 		return myName;
 	}
 	
-	}
+
 	public void setHeal(int heal)
 	{
 		healValue = heal;
