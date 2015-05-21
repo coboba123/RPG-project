@@ -49,5 +49,16 @@ public class Weapon implements Item
 	{
 		attValue = att;
 	}
+	
+	public String getDesc()
+	{
+		//TODO
+		return"";
+	}
+	
+	public void setDesc(String desc)
+	{
+		//TODO
+	}
 
 }

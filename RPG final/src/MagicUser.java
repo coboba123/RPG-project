@@ -4,21 +4,22 @@
 
 /**
  * @author danielzhang
- *
  */
 public class MagicUser implements Character
 {
-	private String name;
+	private String name, description;
 	private int HP;
 	private int MP;
-	
+
 	public MagicUser(String myName)
-	{	
+	{
 		name = myName;
 		HP = 80;
 		MP = 50;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
 	 * @see Character#getName()
 	 */
 	@Override
@@ -28,17 +29,19 @@ public class MagicUser implements Character
 		return name;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Character#setName()
 	 */
 	@Override
 	public void setName(String myName)
 	{
 		// TODO Auto-generated method stub
-		name = myName;		
+		name = myName;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Character#getHP()
 	 */
 	@Override
@@ -48,7 +51,8 @@ public class MagicUser implements Character
 		return HP;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Character#setHP()
 	 */
 	@Override
@@ -58,7 +62,8 @@ public class MagicUser implements Character
 		HP = myHP;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Character#addHP(int)
 	 */
 	@Override
@@ -68,7 +73,8 @@ public class MagicUser implements Character
 		HP += myHP;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Character#subHP(int)
 	 */
 	@Override
@@ -78,7 +84,8 @@ public class MagicUser implements Character
 		HP -= myHP;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Character#getMP()
 	 */
 	@Override
@@ -88,7 +95,8 @@ public class MagicUser implements Character
 		return MP;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Character#setMP()
 	 */
 	@Override
@@ -98,7 +106,8 @@ public class MagicUser implements Character
 		MP = myMP;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Character#addMP(int)
 	 */
 	@Override
@@ -108,7 +117,8 @@ public class MagicUser implements Character
 		MP += myMP;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Character#subMP(int)
 	 */
 	@Override
@@ -125,5 +135,15 @@ public class MagicUser implements Character
 			return true;
 		else
 			return false;
+	}
+
+	public String getDesc()
+	{
+		return description;
+	}
+
+	public void setDesc(String desc)
+	{
+		description = desc;
 	}
 }

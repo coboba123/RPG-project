@@ -30,4 +30,8 @@ public interface Character
 	
 	public boolean isDead();
 	
+	public String getDesc();
+	
+	public void setDesc(String desc);
+	
 }

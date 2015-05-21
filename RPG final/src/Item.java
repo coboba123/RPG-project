@@ -14,4 +14,8 @@ public interface Item
 	//returns name of the item
 	public String getName();
 	
+	public void setDesc(String desc);
+	
+	public String getDesc();
+	
 }

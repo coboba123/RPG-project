@@ -4,23 +4,23 @@
 
 /**
  * @author Cody and Alex and Daniel
- *
  */
 public class Armor implements Item
 {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Item#setName(java.lang.String)
 	 */
 	private String myName;
 	private int defValue;
-	
-	public Armor (String name, int def)
+
+	public Armor(String name, int def)
 	{
 		myName = name;
 		defValue = def;
 	}
-	
+
 	@Override
 	public void setName(String name)
 	{
@@ -28,7 +28,8 @@ public class Armor implements Item
 		myName = name;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see Item#getName()
 	 */
 	@Override
@@ -37,18 +38,29 @@ public class Armor implements Item
 		// TODO Auto-generated method stub
 		return myName;
 	}
-	
+
 	public int getDef()
 	{
 		// TODO
 		return defValue;
 	}
-	
+
 	public void setDef(int def)
 	{
-		//TODO
+		// TODO
 		defValue = def;
-	
+
+	}
+
+	public String getDesc()
+	{
+		// TODO
+		return "";
+	}
+
+	public void setDesc(String desc)
+	{
+		// TODO
 	}
 
 }

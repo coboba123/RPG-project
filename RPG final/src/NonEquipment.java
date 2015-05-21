@@ -29,10 +29,16 @@ public class NonEquipment implements Item
 		return null;
 	}
 	
-	public String getDescription()
+	
+	public String getDesc()
 	{
 		//TODO
 		return"";
+	}
+	
+	public void setDesc(String desc)
+	{
+		//TODO
 	}
 
 }

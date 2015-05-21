@@ -8,7 +8,7 @@
 public class nonMagicUser implements Character
 {
 
-	private String name;
+	private String name, description;
 	private int HP;
 	private int MP;
 
@@ -136,5 +136,14 @@ public class nonMagicUser implements Character
 		else
 			return false;
 	}
+	
+	public String getDesc()
+	{
+		return description;
+	}
 
+	public void setDesc(String desc)
+	{
+		description = desc;
+	}
 }
