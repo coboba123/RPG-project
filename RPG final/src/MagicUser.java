@@ -3,19 +3,19 @@
  */
 
 /**
- * @author danielzhang
+ * @author Daniel
  */
 public class MagicUser implements Character
 {
-	private String name, description;
-	private int HP;
-	private int MP;
+	private String myName, myDesc;
+	private int myHP;
+	private int myMP;
 
-	public MagicUser(String myName)
+	public MagicUser(String name, String desc)
 	{
-		name = myName;
-		HP = 80;
-		MP = 50;
+		myName = name;
+		myHP = 80;
+		myMP = 50;
 	}
 
 	/*
@@ -25,8 +25,7 @@ public class MagicUser implements Character
 	@Override
 	public String getName()
 	{
-		// TODO Auto-generated method stub
-		return name;
+		return myName;
 	}
 
 	/*
@@ -34,10 +33,9 @@ public class MagicUser implements Character
 	 * @see Character#setName()
 	 */
 	@Override
-	public void setName(String myName)
+	public void setName(String name)
 	{
-		// TODO Auto-generated method stub
-		name = myName;
+		myName = name;
 	}
 
 	/*
@@ -47,8 +45,7 @@ public class MagicUser implements Character
 	@Override
 	public int getHP()
 	{
-		// TODO Auto-generated method stub
-		return HP;
+		return myHP;
 	}
 
 	/*
@@ -56,10 +53,9 @@ public class MagicUser implements Character
 	 * @see Character#setHP()
 	 */
 	@Override
-	public void setHP(int myHP)
+	public void setHP(int HP)
 	{
-		// TODO Auto-generated method stub
-		HP = myHP;
+		myHP = HP;
 	}
 
 	/*
@@ -67,10 +63,9 @@ public class MagicUser implements Character
 	 * @see Character#addHP(int)
 	 */
 	@Override
-	public void addHP(int myHP)
+	public void addHP(int HP)
 	{
-		// TODO Auto-generated method stub
-		HP += myHP;
+		myHP += HP;
 	}
 
 	/*
@@ -78,10 +73,9 @@ public class MagicUser implements Character
 	 * @see Character#subHP(int)
 	 */
 	@Override
-	public void subHP(int myHP)
+	public void subHP(int HP)
 	{
-		// TODO Auto-generated method stub
-		HP -= myHP;
+		myHP -= HP;
 	}
 
 	/*
@@ -91,8 +85,7 @@ public class MagicUser implements Character
 	@Override
 	public int getMP()
 	{
-		// TODO Auto-generated method stub
-		return MP;
+		return myMP;
 	}
 
 	/*
@@ -100,10 +93,9 @@ public class MagicUser implements Character
 	 * @see Character#setMP()
 	 */
 	@Override
-	public void setMP(int myMP)
+	public void setMP(int MP)
 	{
-		// TODO Auto-generated method stub
-		MP = myMP;
+		myMP = MP;
 	}
 
 	/*
@@ -111,10 +103,9 @@ public class MagicUser implements Character
 	 * @see Character#addMP(int)
 	 */
 	@Override
-	public void addMP(int myMP)
+	public void addMP(int MP)
 	{
-		// TODO Auto-generated method stub
-		MP += myMP;
+		myMP += MP;
 	}
 
 	/*
@@ -122,10 +113,9 @@ public class MagicUser implements Character
 	 * @see Character#subMP(int)
 	 */
 	@Override
-	public void subMP(int myMP)
+	public void subMP(int MP)
 	{
-		// TODO Auto-generated method stub
-		MP -= myMP;
+		myMP -= MP;
 	}
 
 	@Override
@@ -139,11 +129,11 @@ public class MagicUser implements Character
 
 	public String getDesc()
 	{
-		return description;
+		return myDesc;
 	}
 
 	public void setDesc(String desc)
 	{
-		description = desc;
+		myDesc = desc;
 	}
 }

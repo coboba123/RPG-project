@@ -5,11 +5,13 @@ public class Potion implements Item
 {
 
 	private String myName;
+	private String myDesc
 	private int healValue;
 
-	public Potion(String name, int heal)
+	public Potion(String name, String desc, int heal)
 	{
 		myName = name;
+		myDesc = desc;
 		healValue = heal;
 	}
 
@@ -39,13 +41,12 @@ public class Potion implements Item
 	
 	public String getDesc()
 	{
-		//TODO
-		return"";
+		return myDesc;
 	}
 	
 	public void setDesc(String desc)
 	{
-		//TODO
+		myDesc = desc;
 	}
 
 }

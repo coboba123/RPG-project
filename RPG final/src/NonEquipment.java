@@ -1,22 +1,25 @@
 /**
- * 
- */
-
-/**
  * @author Cody
  *
  */
 public class NonEquipment implements Item
 {
-
+	private String myName;
+	
+	private String myDesc;
+	
+	public NonEquipment(String name, String desc)
+	{
+		myName = name;
+		myDesc = desc;
+	}
 	/* (non-Javadoc)
 	 * @see Item#setName(java.lang.String)
 	 */
 	@Override
 	public void setName(String name)
 	{
-		// TODO Auto-generated method stub
-
+		myName = name;
 	}
 
 	/* (non-Javadoc)
@@ -25,20 +28,16 @@ public class NonEquipment implements Item
 	@Override
 	public String getName()
 	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	public String getDesc()
-	{
-		//TODO
-		return"";
+		return myName;
 	}
 	
 	public void setDesc(String desc)
 	{
-		//TODO
+		myDesc = desc;
 	}
-
+	
+	public String getDesc()
+	{
+		return myDesc;
+	}
 }

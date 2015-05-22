@@ -3,20 +3,21 @@
  */
 
 /**
- * @author danielzhang
+ * @author Daniel
  */
 public class nonMagicUser implements Character
 {
 
-	private String name, description;
-	private int HP;
+	private String myName, myDesc;
+	private int myHP;
 	private int MP;
 
-	public nonMagicUser(String myName)
+	public nonMagicUser(String name, String desc)
 	{
-		name = myName;
-		HP = 100;
-		MP = 0;
+		myName = name;
+		myDesc = desc;
+		myHP = 100;
+		myMP = 0;
 	}
 
 	/*
@@ -26,8 +27,7 @@ public class nonMagicUser implements Character
 	@Override
 	public String getName()
 	{
-
-		return name;
+		return myName;
 	}
 
 	/*
@@ -35,10 +35,9 @@ public class nonMagicUser implements Character
 	 * @see Character#setName(java.lang.String)
 	 */
 	@Override
-	public void setName(String myName)
+	public void setName(String name)
 	{
-
-		name = myName;
+		myName = name;
 	}
 
 	/*
@@ -48,8 +47,7 @@ public class nonMagicUser implements Character
 	@Override
 	public int getHP()
 	{
-
-		return HP;
+		return myHP;
 	}
 
 	/*
@@ -57,10 +55,9 @@ public class nonMagicUser implements Character
 	 * @see Character#setHP(int)
 	 */
 	@Override
-	public void setHP(int myHP)
+	public void setHP(int HP)
 	{
-
-		HP = myHP;
+		myHP = HP;
 	}
 
 	/*
@@ -68,10 +65,10 @@ public class nonMagicUser implements Character
 	 * @see Character#addHP(int)
 	 */
 	@Override
-	public void addHP(int myHP)
+	public void addHP(int HP)
 	{
 
-		HP += myHP;
+		myHP += HP;
 	}
 
 	/*
@@ -79,10 +76,10 @@ public class nonMagicUser implements Character
 	 * @see Character#subHP(int)
 	 */
 	@Override
-	public void subHP(int myHP)
+	public void subHP(int HP)
 	{
 
-		HP -= myHP;
+		myHP -= HP;
 	}
 
 	/*
@@ -93,7 +90,7 @@ public class nonMagicUser implements Character
 	public int getMP()
 	{
 
-		return MP;
+		return myMP;
 	}
 
 	/*
@@ -101,10 +98,10 @@ public class nonMagicUser implements Character
 	 * @see Character#setMP(int)
 	 */
 	@Override
-	public void setMP(int myMP)
+	public void setMP(int MP)
 	{
 
-		MP = myMP;
+		myMP = MP;
 	}
 
 	/*
@@ -112,10 +109,10 @@ public class nonMagicUser implements Character
 	 * @see Character#addMP(int)
 	 */
 	@Override
-	public void addMP(int myMP)
+	public void addMP(int MP)
 	{
 
-		MP += myMP;
+		myMP += MP;
 	}
 
 	/*
@@ -123,10 +120,10 @@ public class nonMagicUser implements Character
 	 * @see Character#subMP(int)
 	 */
 	@Override
-	public void subMP(int myMP)
+	public void subMP(int MP)
 	{
 
-		MP -= myMP;
+		myMP -= MP;
 	}
 
 	public boolean isDead()
@@ -139,11 +136,11 @@ public class nonMagicUser implements Character
 	
 	public String getDesc()
 	{
-		return description;
+		return myDesc;
 	}
 
 	public void setDesc(String desc)
 	{
-		description = desc;
+		myDesc = desc;
 	}
 }

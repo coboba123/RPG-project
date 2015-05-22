@@ -12,13 +12,17 @@ public class Weapon implements Item
 	//name of weapon
 	private String myName;
 	
+	//description of weapon
+	private String myDesc;
+	
 	//attack value of weapon
 	private int attValue;
 	
 	//constructs weapon w/ name and attack
-	public Weapon(String name, int att)
+	public Weapon(String name, String desc, int att)
 	{
 		myName = name;
+		myDesc = desc;
 		attValue = att;
 	}
 	
@@ -52,13 +56,12 @@ public class Weapon implements Item
 	
 	public String getDesc()
 	{
-		//TODO
-		return"";
+		return myDesc;
 	}
 	
 	public void setDesc(String desc)
 	{
-		//TODO
+		myDesc = desc;
 	}
 
 }
