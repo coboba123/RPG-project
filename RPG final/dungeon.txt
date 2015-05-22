@@ -1,96 +1,37 @@
-null
-
-null
-
-a dark and stormy room
-10
-
-a dark and stormy room
-10
-
-a dark and stormy room
-10
-
+none
+none
+a dark and stormy room.
+a dark and stormy room.
+a dark and stormy room.
 a dark and stormy room. there appears to be a chest in the center
-10
-
 a dark and stormy room. there appears to be a chest in the center
-10
-
-a dark and stormy room
-10
-
-a dark and stormy room
-10
-
+a dark and stormy room.
+a dark and stormy room.
 a dark and stormy room. there is a giant locked door to the east.
-10
-
-The final boss's Room. there is a bad guy here.
-0
-
-a dark and stormy room
-10
-
-null
-
-null
-
-a dark and stormy room
-10
-
-null
-
-null
-
-a dark and stormy room
-10
-
-null
-
-null
-
-a dark and stormy room
-10
-
-null
-
-a dark and stormy room
-10
-
-a dark and stormy room
-10
-
-a dark and stormy room
-10
-
-a dark and stormy room
-10
-
+The final boss's Room. there is a bad guy here
+a dark and stormy room.
+none
+none
+a dark and stormy room.
+none
+none
+a dark and stormy room.
+none
+none
+a dark and stormy room.
+none
+a dark and stormy room.
+a dark and stormy room.
+a dark and stormy room.
+a dark and stormy room.
 a dark and stormy room. the friendly shopkeeper resides here.
-10
-
 a dark and stormy room
-10
-
 a dark and stormy room
-10
-
-null
-
+none
 a dark and stormy room. there is a key here.
-10
-
-null
-
+none
 The entrance to the dungeon
-10
-
-null
-
-a dark and stormy room. there appears to be a chest here.
-10
-
-null
-
+none
+a dark and stormy room. there appears to be a chest here. 
+none
 5 2

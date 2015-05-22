@@ -21,6 +21,11 @@ public class Room
 	{
 		this("", 0);
 	}
+	
+	public Room(String description)
+	{
+		this(description, 0);
+	}
 
 	public String getDesc()
 	{

@@ -26,8 +26,10 @@ public class Gui
 			{
 				try
 				{
+					
 					Gui window = new Gui();
 					window.frame.setVisible(true);
+					
 				} catch (Exception e)
 				{
 					e.printStackTrace();
@@ -49,6 +51,8 @@ public class Gui
 	 */
 	private void initialize()
 	{
+		Map map = new Map("dungeon.txt");
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,7 +79,7 @@ public class Gui
 		JButton btnNorth = new JButton("North");
 		btnNorth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea1.setText("");
+				textArea1.setText(((Room)map.moveNorth()).getDesc());
 			}
 		});
 		btnNorth.setBounds(486, 321, 125, 40);
