@@ -1,8 +1,4 @@
 /**
- * 
- */
-
-/**
  * @author Cody and Alex and Daniel
  */
 public class Armor implements Item

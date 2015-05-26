@@ -10,7 +10,7 @@ public class nonMagicUser implements Character
 
 	private String myName, myDesc;
 	private int myHP;
-	private int MP;
+	private int myMP;
 
 	public nonMagicUser(String name, String desc)
 	{
