@@ -55,7 +55,10 @@ public class MagicUser implements Character
 	@Override
 	public void setHP(int HP)
 	{
-		myHP = HP;
+		if (HP > 80)
+			myHP = 80;
+		else
+			myHP = HP;
 	}
 
 	/*
@@ -65,7 +68,10 @@ public class MagicUser implements Character
 	@Override
 	public void addHP(int HP)
 	{
+		if (myHP+= HP =< 80)
 		myHP += HP;
+		else
+			myHP = 80;
 	}
 
 	/*
@@ -75,7 +81,10 @@ public class MagicUser implements Character
 	@Override
 	public void subHP(int HP)
 	{
-		myHP -= HP;
+		if (myHP -= HP >= 0)
+			myHP -= HP;
+		else
+			myHP = 0;
 	}
 
 	/*
@@ -95,7 +104,10 @@ public class MagicUser implements Character
 	@Override
 	public void setMP(int MP)
 	{
-		myMP = MP;
+		if (MP > 50)
+			myMP = 50;
+		else
+			myMP = MP;
 	}
 
 	/*
@@ -105,7 +117,10 @@ public class MagicUser implements Character
 	@Override
 	public void addMP(int MP)
 	{
-		myMP += MP;
+		if (myMP += MP =< 50)
+			myMP += MP;
+		else
+			myMP = 50;
 	}
 
 	/*
@@ -115,13 +130,24 @@ public class MagicUser implements Character
 	@Override
 	public void subMP(int MP)
 	{
-		myMP -= MP;
+		if (myMP -= MP >= 0)
+			myMP -= MP;
+		else
+			myMP = 0;
 	}
 
 	@Override
 	public boolean isDead()
 	{
-		if (HP <= 0)
+		if (myHP <= 0)
+			return true;
+		else
+			return false;
+	}
+	
+	pubic boolean noMP()
+	{
+		if (myMP <= 0)
 			return true;
 		else
 			return false;

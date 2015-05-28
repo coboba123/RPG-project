@@ -57,7 +57,10 @@ public class nonMagicUser implements Character
 	@Override
 	public void setHP(int HP)
 	{
-		myHP = HP;
+		if (HP > 100)
+			myHP = 100;
+		else
+			myHP = HP;
 	}
 
 	/*
@@ -67,8 +70,10 @@ public class nonMagicUser implements Character
 	@Override
 	public void addHP(int HP)
 	{
-
-		myHP += HP;
+		if (myHP+= HP =< 100)
+			myHP += HP;
+		else
+			myHP = 100;
 	}
 
 	/*
@@ -78,8 +83,10 @@ public class nonMagicUser implements Character
 	@Override
 	public void subHP(int HP)
 	{
-
-		myHP -= HP;
+		if (myHP -= HP >= 0)
+			myHP -= HP;
+		else
+			myHP = 0;
 	}
 
 	/*
@@ -89,8 +96,7 @@ public class nonMagicUser implements Character
 	@Override
 	public int getMP()
 	{
-
-		return myMP;
+		return 0;
 	}
 
 	/*
@@ -100,8 +106,7 @@ public class nonMagicUser implements Character
 	@Override
 	public void setMP(int MP)
 	{
-
-		myMP = MP;
+		String.out.println("Non-magic users do not have any MP!");
 	}
 
 	/*
@@ -111,8 +116,7 @@ public class nonMagicUser implements Character
 	@Override
 	public void addMP(int MP)
 	{
-
-		myMP += MP;
+		String.out.println("Non-magic users do not have any MP!");
 	}
 
 	/*
@@ -122,16 +126,20 @@ public class nonMagicUser implements Character
 	@Override
 	public void subMP(int MP)
 	{
-
-		myMP -= MP;
+		String.out.println("Non-magic users do not have any MP!");
 	}
 
 	public boolean isDead()
 	{
-		if (HP <= 0)
+		if (myHP <= 0)
 			return true;
 		else
 			return false;
+	}
+	
+	public boolean noMP()
+	{
+		return true;
 	}
 	
 	public String getDesc()
