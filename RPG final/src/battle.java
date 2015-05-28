@@ -1,7 +1,7 @@
 /**
  * Write a description of class Battle here.
  * 
- * @author (your name)
+ * @author (Alex Zuo)
  * @version (a version number or a date)
  */
 public class Battle
