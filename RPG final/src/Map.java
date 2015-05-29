@@ -5,19 +5,19 @@ import chn.util.*;
  */
 public class Map
 {
-	Room current;
+	Room current, cannot;
 	int vert, hori;
 	String temp;
 
-	Room[][] map = new Room[6][6];
+	Room[][] map = new Room[8][8];
 
 	public Map(String fileName)
 	{
 		FileInput input = new FileInput(fileName);
 
-		for (int a = 0; a < 6; a++)
+		for (int a = 0; a < 8; a++)
 		{
-			for (int b = 0; b < 6; b++)
+			for (int b = 0; b < 8; b++)
 			{
 				temp = input.readLine();
 				System.out.println(temp);
@@ -27,6 +27,7 @@ public class Map
 				} else
 				{
 					map[a][b] = new Room(temp);
+					map[a][b].setRate(input.readInt());
 				}
 			}
 		}
@@ -34,73 +35,90 @@ public class Map
 		hori = input.readInt();
 		current = map[vert][hori];
 
-		for (int a = 0; a < 6; a++)
+		for (int a = 0; a < 8; a++)
 		{
-			for (int b = 0; b < 6; b++)
+			for (int b = 0; b < 8; b++)
 			{
 				if (map[a][b] != null)
-				{
-					try
-					{
-						if (map[a][b + 1] != null)
-							map[a][b].setEast(map[a][b + 1]);
-					} catch (IndexOutOfBoundsException e)
-					{
-					}
-					try
-					{
-						if (map[a][b - 1] != null)
-							map[a][b].setWest(map[a][b - 1]);
-					} catch (IndexOutOfBoundsException e)
-					{
-					}
-					try
-					{
-						if (map[a + 1][b] != null)
-							map[a][b].setNorth(map[a - 1][b]);
-					} catch (IndexOutOfBoundsException e)
-					{
-					}
-					try
-					{
-						if (map[a - 1][b] != null)
-							map[a][b].setSouth(map[a + 1][b]);
-					} catch (IndexOutOfBoundsException e)
-					{
-					}
-
-				}
-
+					System.out.print(1);
+				else
+					System.out.print(0);
 			}
-
+			System.out.println();
 		}
+		cannot = new Room("You cant go that way", 0);
+		(map[2][5]).setLocked(true);
 	}
 
 	public Room getCurrent()
 	{
 		return current;
 	}
-	
+
 	public Room moveNorth()
 	{
-		current = map[vert-1][hori];
-		return current;
+		if (map[vert - 1][hori] != null)
+		{
+			if (map[vert - 1][hori].getLocked())
+			{
+				cannot = new Room(
+						"You cant go that way. The door appears to be locked. Maybe there is a key somewhere around here."
+								+ "\n" + "\n" + current.getDesc(), 0);
+				return cannot;
+			} else
+			{
+				vert--;
+				current = map[vert][hori];
+				return current;
+			}
+		} else
+		{
+			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
+			return cannot;
+		}
+
 	}
+
 	public Room moveSouth()
 	{
-		current = map[vert+1][hori];
-		return current;
+		if (map[vert + 1][hori] != null)
+		{
+			vert++;
+			current = map[vert][hori];
+			return current;
+		} else
+		{
+			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
+			return cannot;
+		}
 	}
+
 	public Room moveEast()
 	{
-		current = map[vert][hori + 1];
-		return current;
+		if (map[vert][hori + 1] != null)
+		{
+			hori++;
+			current = map[vert][hori];
+			return current;
+		} else
+		{
+			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
+			return cannot;
+		}
 	}
+
 	public Room moveWest()
 	{
-		current = map[vert][hori - 1];
-		return current;
+		if (map[vert][hori - 1] != null)
+		{
+			hori--;
+			current = map[vert][hori];
+			return current;
+		} else
+		{
+			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
+			return cannot;
+		}
 	}
-	
-	
+
 }

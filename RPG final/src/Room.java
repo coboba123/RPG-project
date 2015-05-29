@@ -9,7 +9,8 @@ public class Room
 {
 	private String roomDesc;
 	private int enemyRate;
-	private Room north = null, south = null, east = null, west = null;
+	private Boolean locked = false, shop = false;
+	private Item item;
 
 	public Room(String description, int rate)
 	{
@@ -21,7 +22,7 @@ public class Room
 	{
 		this("", 0);
 	}
-	
+
 	public Room(String description)
 	{
 		this(description, 0);
@@ -52,44 +53,34 @@ public class Room
 		return roomDesc;
 	}
 
-	public Room getNorth()
+	public void setLocked(boolean loc)
 	{
-		return north;
+		locked = loc;
 	}
 
-	public Room getSouth()
+	public boolean getLocked()
 	{
-		return south;
+		return locked;
 	}
 
-	public Room getEast()
+	public Item getItem()
 	{
-		return east;
+		return item;
 	}
 
-	public Room getWest()
+	public void setItem(Item temp)
 	{
-		return west;
+		item = temp;
 	}
 
-	public void setNorth(Room loc)
+	public boolean getShop()
 	{
-		north = loc;
+		return shop;
 	}
 
-	public void setSouth(Room loc)
+	public void setShop(boolean temp)
 	{
-		south = loc;
-	}
-
-	public void setEast(Room loc)
-	{
-		east = loc;
-	}
-
-	public void setWest(Room loc)
-	{
-		west = loc;
+		shop = temp;
 	}
 
 }

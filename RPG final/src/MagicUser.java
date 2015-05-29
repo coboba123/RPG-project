@@ -10,6 +10,7 @@ public class MagicUser implements Character
 	private String myName, myDesc;
 	private int myHP;
 	private int myMP;
+	private Item[] bag;
 
 	public MagicUser(String name, String desc)
 	{
@@ -121,7 +122,7 @@ public class MagicUser implements Character
 	@Override
 	public boolean isDead()
 	{
-		if (HP <= 0)
+		if (myHP <= 0)
 			return true;
 		else
 			return false;
@@ -135,5 +136,15 @@ public class MagicUser implements Character
 	public void setDesc(String desc)
 	{
 		myDesc = desc;
+	}
+
+	public Item getItem(int i)
+	{
+		return bag[i];
+	}
+
+	public void setBag(Item[] bag)
+	{
+		this.bag = bag;
 	}
 }

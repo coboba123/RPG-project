@@ -5,7 +5,7 @@ public class Potion implements Item
 {
 
 	private String myName;
-	private String myDesc
+	private String myDesc;
 	private int healValue;
 
 	public Potion(String name, String desc, int heal)

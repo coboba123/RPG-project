@@ -19,9 +19,9 @@ public class Money
 	public void add(double num)
 	{
 		myWallet += num;
-		if (myWallet > 100)
+		if (myWallet > 1000)
 		{
-			myWallet = 100;
+			myWallet = 1000;
 		}
 	}
 	

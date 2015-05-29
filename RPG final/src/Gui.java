@@ -9,7 +9,6 @@ import javax.swing.JTextArea;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-
 public class Gui
 {
 
@@ -26,10 +25,10 @@ public class Gui
 			{
 				try
 				{
-					
+
 					Gui window = new Gui();
 					window.frame.setVisible(true);
-					
+
 				} catch (Exception e)
 				{
 					e.printStackTrace();
@@ -37,12 +36,15 @@ public class Gui
 			}
 		});
 	}
+	
+	
 
 	/**
 	 * Create the application.
 	 */
 	public Gui()
 	{
+		
 		initialize();
 	}
 
@@ -52,23 +54,11 @@ public class Gui
 	private void initialize()
 	{
 		Map map = new Map("dungeon.txt");
-		
+
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		JButton btnWest = new JButton("West");
-		btnWest.setBounds(351, 372, 125, 40);
-		frame.getContentPane().add(btnWest);
-
-		JButton btnSouth = new JButton("South");
-		btnSouth.setBounds(486, 372, 125, 40);
-		frame.getContentPane().add(btnSouth);
-
-		JButton btnEast = new JButton("East");
-		btnEast.setBounds(621, 372, 125, 40);
-		frame.getContentPane().add(btnEast);
 
 		JTextArea textArea1 = new JTextArea();
 		textArea1.setText("Welcome to the game");
@@ -76,15 +66,68 @@ public class Gui
 		textArea1.setBounds(10, 10, 764, 291);
 		frame.getContentPane().add(textArea1);
 
+		JButton btnWest = new JButton("West");
+		btnWest.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				textArea1.setText(((Room) map.moveWest()).getDesc());
+				/*
+				if ((map.getCurrent()).getRate() < Math.random() * 100)
+				{
+					Battle battle = new Battle(myCharacter, enemy);
+				}
+				*/
+			}
+		});
+		btnWest.setBounds(351, 372, 125, 40);
+		frame.getContentPane().add(btnWest);
+
+		JButton btnSouth = new JButton("South");
+		btnSouth.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				textArea1.setText(((Room) map.moveSouth()).getDesc());
+			}
+		});
+		btnSouth.setBounds(486, 372, 125, 40);
+		frame.getContentPane().add(btnSouth);
+
+		JButton btnEast = new JButton("East");
+		btnEast.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				textArea1.setText(((Room) map.moveEast()).getDesc());
+			}
+		});
+		btnEast.setBounds(621, 372, 125, 40);
+		frame.getContentPane().add(btnEast);
+
 		JButton btnNorth = new JButton("North");
-		btnNorth.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textArea1.setText(((Room)map.moveNorth()).getDesc());
+		btnNorth.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				textArea1.setText(((Room) map.moveNorth()).getDesc());
 			}
 		});
 		btnNorth.setBounds(486, 321, 125, 40);
 		frame.getContentPane().add(btnNorth);
+		
+		JButton btnInteract = new JButton("Interact");
+		btnInteract.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/*
+				if ((map.getCurrent()).getShop())
+				{
+					ShopGui shop = new ShopGui();
+				}
+			*/
+			}
+		});
+		btnInteract.setBounds(47, 321, 125, 40);
+		frame.getContentPane().add(btnInteract);
 	}
-	
-	
 }
