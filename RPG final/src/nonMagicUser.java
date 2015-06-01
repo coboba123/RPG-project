@@ -10,14 +10,12 @@ public class nonMagicUser implements Character
 
 	private String myName, myDesc;
 	private int myHP;
-	private int myMP;
-
+	
 	public nonMagicUser(String name, String desc)
 	{
 		myName = name;
 		myDesc = desc;
 		myHP = 100;
-		myMP = 0;
 	}
 
 	/*
@@ -70,7 +68,7 @@ public class nonMagicUser implements Character
 	@Override
 	public void addHP(int HP)
 	{
-		if (myHP+= HP =< 100)
+		if (myHP + HP <= 100)
 			myHP += HP;
 		else
 			myHP = 100;
@@ -83,7 +81,7 @@ public class nonMagicUser implements Character
 	@Override
 	public void subHP(int HP)
 	{
-		if (myHP -= HP >= 0)
+		if (myHP - HP >= 0)
 			myHP -= HP;
 		else
 			myHP = 0;
@@ -97,36 +95,6 @@ public class nonMagicUser implements Character
 	public int getMP()
 	{
 		return 0;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see Character#setMP(int)
-	 */
-	@Override
-	public void setMP(int MP)
-	{
-		String.out.println("Non-magic users do not have any MP!");
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see Character#addMP(int)
-	 */
-	@Override
-	public void addMP(int MP)
-	{
-		String.out.println("Non-magic users do not have any MP!");
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see Character#subMP(int)
-	 */
-	@Override
-	public void subMP(int MP)
-	{
-		String.out.println("Non-magic users do not have any MP!");
 	}
 
 	public boolean isDead()

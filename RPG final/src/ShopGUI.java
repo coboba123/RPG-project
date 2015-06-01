@@ -1,9 +1,12 @@
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -54,6 +57,17 @@ public class ShopGUI
 
 	    ImageIcon imageIcon = new ImageIcon("shop.png");
 	    JLabel label = new JLabel(imageIcon);
+	    
+	    JButton btnSouth = new JButton("HP Potion -100");
+		btnSouth.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				textArea1.setText(((Room) map.moveSouth()).getDesc());
+			}
+		});
+		btnSouth.setBounds(486, 372, 125, 40);
+		frame.getContentPane().add(btnSouth);
 
 	    frame.getContentPane().add(label);
 	    
