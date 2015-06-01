@@ -4,7 +4,7 @@
  * @author (Alex Zuo)
  * @version (a version number or a date)
  */
-public class Battle
+public class battle
 {
 	// instance variables - replace the example below with your own
 	private Character myCharacter;
@@ -13,7 +13,7 @@ public class Battle
 	/**
 	 * Constructor for objects of class Battle
 	 */
-	public Battle(Character c1, Character c2)
+	public battle(Character c1, Character c2)
 	{
 		myCharacter = c1;
 		myEnemy = c2;
@@ -29,14 +29,14 @@ public class Battle
 	public int attackCharacter(int eDamage)
 	{
 		if (isCritical() == true)
-			return myCharacter.getHP() - 1.5 * eDamage;
+			return myCharacter.getHP() - 2 * eDamage;
 		return myCharacter.getHP() - eDamage;
 	}
 
 	public int attackEnemy(int cDamage)
 	{
 		if (isCritical() == true)
-			return myEnemy.getHP() - 1.5 * cDamage;
+			return myEnemy.getHP() - 2 * cDamage;
 		return myEnemy.getHP() - cDamage;
 	}
 
@@ -48,9 +48,9 @@ public class Battle
 				attackEnemy(0);
 			else
 			{
-				attackEnemy(myCharacter.getDamage());
-				if (myEnemy.isDead == false)
-					attackCharacter(myEnemy.getDamage());
+				myEnemy.setHP(attackEnemy(myCharacter.getDamage() - myEnemy.getArmor()));
+				if (myEnemy.isDead() == false && myCharacter.getArmor() < myEnemy.getAttack())
+					myCharacter.setHP(attackCharacter(myEnemy.getDamage() - myCharacter.getArmor()));						
 			}
 		} else if (myCharacter.getSpeed() == myEnemy.getSpeed())
 		{
@@ -61,21 +61,29 @@ public class Battle
 				else
 				{
 					attackEnemy(myCharacter.getDamage());
-					if (myEnemy.isDead == false)
+					if (myEnemy.isDead() == false)
 						attackCharacter(myEnemy.getDamage());
 				}
 			}
 		} else if (myCharacter.getSpeed() < myEnemy.getSpeed())
 		{
 			attackCharacter(myEnemy.getDamage());
-			if (myCharacter.isDead == false)
+			if (myCharacter.isDead() == false)
 				attackEnemy(myCharacter.getDamage());
 		}
 	}
 
 	public boolean isCritical()
 	{
-		if (Math.random >= 0.9)
+		if (Math.random() <= 0.1)
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean isMiss()
+	{
+		if (Math.random() >= .95)
 			return true;
 		else
 			return false;
