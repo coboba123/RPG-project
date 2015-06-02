@@ -1,8 +1,4 @@
 /**
- * 
- */
-
-/**
  * @author Daniel
  */
 public class MagicUser implements Character

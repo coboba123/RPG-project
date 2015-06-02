@@ -1,5 +1,5 @@
 /**
- * @author Daniel
+ * @author Daniel 
  */
 public class Monster 
 {
