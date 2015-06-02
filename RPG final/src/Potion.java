@@ -7,12 +7,14 @@ public class Potion implements Item
 	private String myName;
 	private String myDesc;
 	private int healValue;
+	private boolean HPPot;
 
-	public Potion(String name, String desc, int heal)
+	public Potion(String name, String desc, int heal, boolean isHp )
 	{
 		myName = name;
 		myDesc = desc;
 		healValue = heal;
+		setHPPot(isHp);
 	}
 
 	@Override
@@ -47,6 +49,16 @@ public class Potion implements Item
 	public void setDesc(String desc)
 	{
 		myDesc = desc;
+	}
+
+	public boolean isHPPot()
+	{
+		return HPPot;
+	}
+
+	public void setHPPot(boolean hPPot)
+	{
+		HPPot = hPPot;
 	}
 
 }

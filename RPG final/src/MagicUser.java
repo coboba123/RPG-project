@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * 
  */
@@ -8,15 +10,18 @@
 public class MagicUser implements Character
 {
 	private String myName, myDesc;
-	private int myHP;
-	private int myMP;
-	private Item[] bag;
+	private int myHP, myMP, myMoney;
+	private ArrayList<Item> bag = new ArrayList<Item>(1);
+	private boolean hasMap;
+	
 
 	public MagicUser(String name, String desc)
 	{
 		myName = name;
 		myHP = 80;
 		myMP = 50;
+		myMoney = 0;
+		hasMap = false;
 	}
 
 	/*
@@ -92,7 +97,6 @@ public class MagicUser implements Character
 	 * (non-Javadoc)
 	 * @see Character#getMP()
 	 */
-	@Override
 	public int getMP()
 	{
 		return myMP;
@@ -102,7 +106,6 @@ public class MagicUser implements Character
 	 * (non-Javadoc)
 	 * @see Character#setMP()
 	 */
-	@Override
 	public void setMP(int MP)
 	{
 		if (MP > 50)
@@ -115,7 +118,6 @@ public class MagicUser implements Character
 	 * (non-Javadoc)
 	 * @see Character#addMP(int)
 	 */
-	@Override
 	public void addMP(int MP)
 	{
 		if (myMP + MP <= 50)
@@ -128,7 +130,6 @@ public class MagicUser implements Character
 	 * (non-Javadoc)
 	 * @see Character#subMP(int)
 	 */
-	@Override
 	public void subMP(int MP)
 	{
 		if (myMP - MP >= 0)
@@ -164,13 +165,78 @@ public class MagicUser implements Character
 		myDesc = desc;
 	}
 
-	public Item getItem(int i)
+
+	@Override
+	public int getMoney()
 	{
-		return bag[i];
+		
+		return myMoney;
 	}
 
-	public void setBag(Item[] bag)
+	@Override
+	public void setMoney(int money)
 	{
-		this.bag = bag;
+		myMoney = money;
+		
+	}
+
+	@Override
+	public void subMoney(int money)
+	{
+		myMoney -= money;
+		
+	}
+
+	@Override
+	public void addMoney(int money)
+	{
+		myMoney += money;
+		
+	}
+
+	@Override
+	public void addItem(Item item)
+	{
+		bag.add(item);
+		
+	}
+
+	private boolean subItem(Item item)
+	{
+		int i = 0;
+		while ((Item)bag.get(i) != item && i < bag.size())
+		{
+			i++;
+		}
+		if (i != bag.size() && (Item)bag.get(i) == item )
+		{
+			bag.remove(i);
+			return true;
+		}
+		else
+			return false;
+		
+	}
+
+	@Override
+	public String useItem(Item item)
+	{
+		if (subItem(item))
+		{
+			return "Item successfully used";
+		}
+		else
+			return "You don't have any more of that Item!";
+		
+	}
+
+	public boolean isHasMap()
+	{
+		return hasMap;
+	}
+
+	public void setHasMap(boolean hasMap)
+	{
+		this.hasMap = hasMap;
 	}
 }

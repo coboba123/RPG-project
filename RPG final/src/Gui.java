@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+import java.awt.Image;
+import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -8,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+
+import java.awt.Toolkit;
 
 public class Gui
 {
@@ -59,6 +63,7 @@ public class Gui
 		frame.setBounds(100, 100, 800, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
 
 		JTextArea textArea1 = new JTextArea();
 		textArea1.setText("Welcome to the game");

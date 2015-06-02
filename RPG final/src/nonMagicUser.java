@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * 
  */
@@ -9,13 +11,22 @@ public class nonMagicUser implements Character
 {
 
 	private String myName, myDesc;
-	private int myHP;
-	
-	public nonMagicUser(String name, String desc)
+	private int myHP, myMoney;
+	private ArrayList<Item> bag = new ArrayList<Item>(1);
+	private boolean hasMap;
+
+	public nonMagicUser(String name, String desc, int money)
 	{
 		myName = name;
 		myDesc = desc;
 		myHP = 100;
+		myMoney = money;
+		setHasMap(false);
+	}
+
+	public nonMagicUser()
+	{
+		// don't do anything lol
 	}
 
 	/*
@@ -87,16 +98,6 @@ public class nonMagicUser implements Character
 			myHP = 0;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see Character#getMP()
-	 */
-	@Override
-	public int getMP()
-	{
-		return 0;
-	}
-
 	public boolean isDead()
 	{
 		if (myHP <= 0)
@@ -104,12 +105,12 @@ public class nonMagicUser implements Character
 		else
 			return false;
 	}
-	
+
 	public boolean noMP()
 	{
 		return true;
 	}
-	
+
 	public String getDesc()
 	{
 		return myDesc;
@@ -118,5 +119,76 @@ public class nonMagicUser implements Character
 	public void setDesc(String desc)
 	{
 		myDesc = desc;
+	}
+
+	@Override
+	public int getMoney()
+	{
+		return myMoney;
+	}
+
+	@Override
+	public void setMoney(int money)
+	{
+		myMoney = money;
+
+	}
+
+	@Override
+	public void subMoney(int money)
+	{
+		myMoney -= money;
+
+	}
+
+	@Override
+	public void addMoney(int money)
+	{
+		myMoney += money;
+
+	}
+
+	@Override
+	public void addItem(Item item)
+	{
+		bag.add(item);
+
+	}
+
+	private boolean subItem(Item item)
+	{
+		int i = 0;
+		while ((Item) bag.get(i) != item && i < bag.size())
+		{
+			i++;
+		}
+		if (i != bag.size() && (Item) bag.get(i) == item)
+		{
+			bag.remove(i);
+			return true;
+		} else
+			return false;
+
+	}
+
+	@Override
+	public String useItem(Item item)
+	{
+		if (subItem(item))
+		{
+			return "Item successfully used";
+		} else
+			return "You don't have any more of that Item!";
+
+	}
+
+	public boolean isHasMap()
+	{
+		return hasMap;
+	}
+
+	public void setHasMap(boolean hasMap)
+	{
+		this.hasMap = hasMap;
 	}
 }

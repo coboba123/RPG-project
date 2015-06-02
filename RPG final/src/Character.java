@@ -19,14 +19,6 @@ public interface Character
 	public void addHP(int myHP);
 
 	public void subHP(int myHP);
-
-	public int getMP();
-
-	public void setMP(int myMP);
-
-	public void addMP(int myMP);
-
-	public void subMP(int myMP);
 	
 	public boolean isDead();
 	
@@ -35,5 +27,21 @@ public interface Character
 	public String getDesc();
 	
 	public void setDesc(String desc);
+	
+	public int getMoney();
+	
+	public void setMoney(int money);
+	
+	public void subMoney(int money);
+	
+	public void addMoney(int money);
+	
+	public void addItem(Item item);
+	
+	public String useItem(Item item);
+	
+	public boolean isHasMap();
+	
+	public void setHasMap(boolean hasMap);
 	
 }
