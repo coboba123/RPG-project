@@ -36,4 +36,6 @@ public interface Character
 	
 	public void setDesc(String desc);
 	
+	public int getSpeed();
+	
 }

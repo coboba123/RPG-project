@@ -11,12 +11,20 @@ public class MagicUser implements Character
 	private int myHP;
 	private int myMP;
 	private Item[] bag;
+	private double myWallet;
+	private int mySpeed;
+	private Armor myArmor;
+	private Weapon myWeapon;
 
-	public MagicUser(String name, String desc)
+	public MagicUser(String name, String desc, double wallet, Armor armor, Weapon weapon)
 	{
 		myName = name;
 		myHP = 80;
 		myMP = 50;
+		myWallet = wallet;
+		mySpeed = 5;
+		myArmor = armor;
+		myWeapon = weapon;
 	}
 
 	/*
@@ -172,5 +180,45 @@ public class MagicUser implements Character
 	public void setBag(Item[] bag)
 	{
 		this.bag = bag;
+	}
+	
+	public void addMoney(double num)
+	{
+		myWallet += num;
+		if (myWallet > 1000)
+		{
+			myWallet = 1000;
+		}
+	}
+	
+	public void subMoney(double num)
+	{
+		myWallet -= num;
+	}
+	
+	public double getMoney()
+	{
+		return myWallet;
+	}
+	
+	public int getSpeed()
+	{
+		return mySpeed;
+	}
+
+	public Armor getArmor() {
+		return myArmor;
+	}
+
+	public void setMyArmor(Armor armor) {
+		myArmor = armor;
+	}
+
+	public Weapon getWeapon() {
+		return myWeapon;
+	}
+
+	public void setWeapon(Weapon weapon) {
+		myWeapon = weapon;
 	}
 }

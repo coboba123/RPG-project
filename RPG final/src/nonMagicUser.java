@@ -10,12 +10,21 @@ public class nonMagicUser implements Character
 
 	private String myName, myDesc;
 	private int myHP;
+	private Item[] bag;
+	private double myWallet;
+	private int mySpeed;
+	private Armor myArmor;
+	private Weapon myWeapon;
 	
-	public nonMagicUser(String name, String desc)
+	public nonMagicUser(String name, String desc, double wallet, Armor armor, Weapon weapon)
 	{
 		myName = name;
 		myDesc = desc;
 		myHP = 100;
+		myWallet = wallet;
+		mySpeed = 7;
+		myArmor = armor;
+		myWeapon = weapon;
 	}
 
 	/*
@@ -118,5 +127,55 @@ public class nonMagicUser implements Character
 	public void setDesc(String desc)
 	{
 		myDesc = desc;
+	}
+	
+	public Item getItem(int i)
+	{
+		return bag[i];
+	}
+
+	public void setBag(Item[] bag)
+	{
+		this.bag = bag;
+	}
+	
+	public void addMoney(double num)
+	{
+		myWallet += num;
+		if (myWallet > 1000)
+		{
+			myWallet = 1000;
+		}
+	}
+	
+	public void subMoney(double num)
+	{
+		myWallet -= num;
+	}
+	
+	public double getMoney()
+	{
+		return myWallet;
+	}
+	
+	public int getSpeed()
+	{
+		return mySpeed;
+	}
+
+	public Armor getArmor() {
+		return myArmor;
+	}
+
+	public void setMyArmor(Armor armor) {
+		myArmor = armor;
+	}
+
+	public Weapon getWeapon() {
+		return myWeapon;
+	}
+
+	public void setWeapon(Weapon weapon) {
+		myWeapon = weapon;
 	}
 }

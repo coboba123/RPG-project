@@ -13,7 +13,7 @@ public class battle
 	/**
 	 * Constructor for objects of class Battle
 	 */
-	public battle(Character c1, Character c2)
+	public battle(Character c1, Monster c2)
 	{
 		myCharacter = c1;
 		myEnemy = c2;
@@ -44,7 +44,7 @@ public class battle
 	{
 		if (myCharacter.getSpeed() > myEnemy.getSpeed())
 		{
-			if (isMiss(myCharacter) == true)
+			if (isMiss() == true)
 				attackEnemy(0);
 			else
 			{
@@ -56,7 +56,7 @@ public class battle
 		{
 			if (Math.random() >= 0.5)
 			{
-				if (isMiss(myCharacter) == true)
+				if (isMiss() == true)
 					attackEnemy(0);
 				else
 				{
