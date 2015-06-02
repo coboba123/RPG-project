@@ -210,7 +210,7 @@ public class MagicUser implements Character
 		return myArmor;
 	}
 
-	public void setMyArmor(Armor armor) {
+	public void setArmor(Armor armor) {
 		myArmor = armor;
 	}
 
