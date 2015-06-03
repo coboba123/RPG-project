@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 
 /**
- * 
- */
-
-/**
  * @author Daniel
  */
 public class MagicUser implements Character
@@ -13,15 +9,20 @@ public class MagicUser implements Character
 	private int myHP, myMP, myMoney;
 	private ArrayList<Item> bag = new ArrayList<Item>(1);
 	private boolean hasMap;
-	
+	private int mySpeed;
+	private Armor myArmor;
+	private Weapon myWeapon;
 
-	public MagicUser(String name, String desc)
+	public MagicUser(String name, String desc, int wallet, Armor armor, Weapon weapon)
 	{
 		myName = name;
 		myHP = 80;
 		myMP = 50;
-		myMoney = 0;
+		myMoney = wallet;
 		hasMap = false;
+		mySpeed = 5;
+		myArmor = armor;
+		myWeapon = weapon;
 	}
 
 	/*
@@ -190,7 +191,10 @@ public class MagicUser implements Character
 	@Override
 	public void addMoney(int money)
 	{
-		myMoney += money;
+		if(myMoney + money >= 2000)
+			myMoney = 2000;
+		else
+			myMoney +=  money;
 		
 	}
 
@@ -238,5 +242,26 @@ public class MagicUser implements Character
 	public void setHasMap(boolean hasMap)
 	{
 		this.hasMap = hasMap;
+	}
+	
+	public int getSpeed()
+	{
+		return mySpeed;
+	}
+
+	public Armor getArmor() {
+		return myArmor;
+	}
+
+	public void setArmor(Armor armor) {
+		myArmor = armor;
+	}
+
+	public Weapon getWeapon() {
+		return myWeapon;
+	}
+
+	public void setWeapon(Weapon weapon) {
+		myWeapon = weapon;
 	}
 }

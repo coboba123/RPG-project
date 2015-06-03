@@ -43,5 +43,7 @@ public interface Character
 	public boolean isHasMap();
 	
 	public void setHasMap(boolean hasMap);
-	
+
+	public int getSpeed();
 }
+

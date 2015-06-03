@@ -1,4 +1,3 @@
-import java.awt.EventQueue;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -8,8 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -21,39 +18,17 @@ public class ShopGui
 	private Character myCharacter;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args)
-	{
-		EventQueue.invokeLater(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
-					ShopGui window = new ShopGui(new nonMagicUser("Cody", "lol", 800));
-					window.frame.setVisible(true);
-				} catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public ShopGui(Character character)
 	{
 		myCharacter = character;
-		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize()
+	public void initialize()
 	{
 		String words = "";
 		frame = new JFrame();

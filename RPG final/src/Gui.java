@@ -17,6 +17,7 @@ public class Gui
 {
 
 	private JFrame frame;
+	private Character myCharacter;
 
 	/**
 	 * Launch the application.
@@ -124,12 +125,13 @@ public class Gui
 		JButton btnInteract = new JButton("Interact");
 		btnInteract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*
+				
 				if ((map.getCurrent()).getShop())
 				{
-					ShopGui shop = new ShopGui();
+					ShopGui shop = new ShopGui(myCharacter);
+					shop.initialize();
 				}
-			*/
+			
 			}
 		});
 		btnInteract.setBounds(47, 321, 125, 40);
