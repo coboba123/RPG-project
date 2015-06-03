@@ -24,7 +24,7 @@ public class ShopGui
 	{
 		myCharacter = character;
 		initialize();
-		
+
 	}
 
 	/**
@@ -69,8 +69,7 @@ public class ShopGui
 				if (myCharacter.getMoney() >= 200)
 				{
 					myCharacter.subMoney(200);
-					myCharacter.addItem(new Potion("HP Potion", "Heals your character for 50", 50,
-							true));
+					myCharacter.addItem(new Potion("HP Potion", "Heals your character for 50", 50));
 					textArea.setText("Current Money: " + myCharacter.getMoney());
 				} else
 				{
@@ -81,27 +80,6 @@ public class ShopGui
 		});
 		btnHPPotion.setBounds(10, 427, 441, 39);
 		getFrame().getContentPane().add(btnHPPotion);
-
-		JButton btnMPPotion = new JButton("MP Potion - 200G (50 MP)");
-		btnMPPotion.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				if (myCharacter.getMoney() >= 200)
-				{
-					myCharacter.subMoney(200);
-					myCharacter.addItem(new Potion("MP Potion",
-							"Restores your character's MP for 50", 50, false));
-					textArea.setText("Current Money: " + myCharacter.getMoney());
-				} else
-				{
-					textArea.setText("Current Money: " + myCharacter.getMoney()
-							+ "   You don't have enough money!");
-				}
-			}
-		});
-		btnMPPotion.setBounds(10, 477, 441, 39);
-		getFrame().getContentPane().add(btnMPPotion);
 
 		JButton btnMap = new JButton("Map - 500");
 		btnMap.addActionListener(new ActionListener()
@@ -122,10 +100,12 @@ public class ShopGui
 		});
 		btnMap.setBounds(10, 527, 441, 39);
 		getFrame().getContentPane().add(btnMap);
-		
+
 		JButton btnExit = new JButton("Exit");
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnExit.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				getFrame().setVisible(false);
 			}
 		});
@@ -138,7 +118,6 @@ public class ShopGui
 	{
 		return frame;
 	}
-	
 
 	public void setVisible()
 	{

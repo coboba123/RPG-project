@@ -16,6 +16,7 @@ public class MagicUser implements Character
 	{
 		myName = name;
 		myHP = 80;
+		myMP = 50;
 		myMoney = 0;
 		hasMap = true;
 		mySpeed = 5;
@@ -164,13 +165,14 @@ public class MagicUser implements Character
 	}
 
 	@Override
-	public String useItem(Item item)
+	public boolean useItem(Item item)
 	{
 		if (subItem(item))
 		{
-			return "Item successfully used";
-		} else
-			return "You don't have any more of that Item!";
+			return true;
+		}
+		else
+			return false;
 
 	}
 

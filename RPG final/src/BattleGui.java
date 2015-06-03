@@ -10,13 +10,16 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class BattleGui
 {
 	// instance variables
 	private Character myCharacter;
 	private Monster myEnemy;
 	private JFrame frame;
-	private String path, myHp, myMp, myItems, enemyHp;
+	private String path, myHp, myMp, myItems, enemyHp, battleText1;
 
 	/**
 	 * Create the application.
@@ -25,8 +28,8 @@ public class BattleGui
 	 */
 	public BattleGui(Character c1, Monster c2)
 	{
-		 myCharacter = c1;
-		 myEnemy = c2;
+		myCharacter = c1;
+		myEnemy = c2;
 		initialize();
 	}
 
@@ -80,13 +83,6 @@ public class BattleGui
 		playerStats.setEditable(false);
 		playerStats.setBounds(10, 174, 164, 261);
 		frame.getContentPane().add(playerStats);
-		
-		myHp = "HP: " + myCharacter.getHP();
-		
-		myItems = "Bag" + myCharacter.getItems();
-		
-		playerStats.setText(myHp + "\n" + myMp + "\n" + myItems);
-		
 
 		JTextArea battleText = new JTextArea();
 		battleText.setEditable(false);
@@ -97,19 +93,60 @@ public class BattleGui
 		enemyStats.setEditable(false);
 		enemyStats.setBounds(610, 174, 164, 261);
 		frame.getContentPane().add(enemyStats);
-		
+
 		enemyHp = "HP:" + myEnemy.getHP();
-		
+
 		enemyStats.setText(enemyHp + "\n" + myEnemy.getDesc());
-		
-		JButton btnNewButton = new JButton("Fight");
-		btnNewButton.setBounds(168, 463, 135, 41);
-		frame.getContentPane().add(btnNewButton);
-		
-		JButton btnFight = new JButton("Use HP Potion");
-		btnFight.setBounds(468, 463, 135, 41);
+
+		JButton btnFight = new JButton("Fight");
+		btnFight.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				fight();
+				myHp = "HP: " + myCharacter.getHP();
+
+				myItems = "Bag" + myCharacter.getItems();
+
+				playerStats.setText(myCharacter.getName() + "\n" + myHp + "\n" + myMp + "\n"
+						+ myItems);
+
+				enemyHp = "HP:" + myEnemy.getHP();
+
+				enemyStats.setText(enemyHp + "\n" + myEnemy.getDesc());
+
+			}
+		});
+		btnFight.setBounds(168, 463, 135, 41);
 		frame.getContentPane().add(btnFight);
-		
+
+		JButton btnHp = new JButton("Use HP Potion");
+		btnHp.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				if (myCharacter.useItem(new Potion("HP Potion", "Heals your character for 50", 50)))
+				{
+					battleText1 += "\n\nPotion used. 50 HP restored.";
+					myCharacter.addHP(50);
+				} else
+					battleText1 += "\n\nYou don't have any potions left!";
+				myHp = "HP: " + myCharacter.getHP();
+
+				myItems = "Bag" + myCharacter.getItems();
+
+				playerStats.setText(myCharacter.getName() + "\n" + myHp + "\n" + myMp + "\n"
+						+ myItems);
+
+				enemyHp = "HP:" + myEnemy.getHP();
+
+				enemyStats.setText(enemyHp + "\n" + myEnemy.getDesc());
+
+			}
+		});
+		btnHp.setBounds(468, 463, 135, 41);
+		frame.getContentPane().add(btnHp);
+
 	}
 
 	public void setVisible()

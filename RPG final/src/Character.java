@@ -36,7 +36,7 @@ public interface Character
 	
 	public void addItem(Item item);
 	
-	public String useItem(Item item);
+	public boolean useItem(Item item);
 	
 	public boolean isHasMap();
 	
