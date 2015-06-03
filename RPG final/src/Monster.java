@@ -4,9 +4,9 @@
 public class Monster 
 {
 	private int myHP, mySpeed, attVal, baseDef;
-	private String path;
+	private String path, Desc, name;
 	
-	public Monster (int HP, int speed, int att, int baseDef)
+	public Monster (String name, String desc, int HP, int speed, int att, int baseDef)
 	{
 		myHP = HP;
 		mySpeed = speed;
@@ -60,6 +60,16 @@ public class Monster
 	public void setPath(String path)
 	{
 		this.path = path;
+	}
+
+	public String getDesc()
+	{
+		return Desc;
+	}
+
+	public void setDesc(String desc)
+	{
+		Desc = desc;
 	}
 	
 }

@@ -114,6 +114,7 @@ public class BattleGui
 				enemyHp = "HP:" + myEnemy.getHP();
 
 				enemyStats.setText(enemyHp + "\n" + myEnemy.getDesc());
+				battleText.setText(battleText1);
 
 			}
 		});
@@ -131,6 +132,7 @@ public class BattleGui
 					myCharacter.addHP(50);
 				} else
 					battleText1 += "\n\nYou don't have any potions left!";
+				battleText.setText(battleText1);
 				myHp = "HP: " + myCharacter.getHP();
 
 				myItems = "Bag" + myCharacter.getItems();
@@ -184,7 +186,7 @@ public class BattleGui
 			else
 			{
 				if (myCharacter.isDead() == false && myEnemy.getDef() < myCharacter.getDamage())
-				myEnemy.setHP(attackEnemy(myCharacter.getDamage() - myEnemy.getDef()));
+					myEnemy.setHP(attackEnemy(myCharacter.getDamage() - myEnemy.getDef()));
 				if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
 					myCharacter.setHP(attackCharacter(myEnemy.getDef()) - myCharacter.getDef());
 			}
@@ -199,17 +201,18 @@ public class BattleGui
 					if (myCharacter.isDead() == false && myEnemy.getDef() < myCharacter.getDamage())
 						myEnemy.setHP(attackEnemy(myCharacter.getDamage()) - myEnemy.getDef());
 					if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
-						myCharacter.setHP(attackCharacter(myEnemy.getDamage()) - myCharacter.getDef());
+						myCharacter.setHP(attackCharacter(myEnemy.getDamage())
+								- myCharacter.getDef());
 				}
-			}
-			else
+			} else
 			{
 				if (isMiss() == true)
 					attackCharacter(0);
 				else
 				{
 					if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
-						myCharacter.setHP(attackCharacter(myEnemy.getDamage()) - myCharacter.getDef());
+						myCharacter.setHP(attackCharacter(myEnemy.getDamage())
+								- myCharacter.getDef());
 					if (myCharacter.isDead() == false && myEnemy.getDef() < myCharacter.getDamage())
 						myEnemy.setHP(attackEnemy(myCharacter.getDamage()) - myEnemy.getDef());
 				}
@@ -217,7 +220,7 @@ public class BattleGui
 		} else if (myCharacter.getSpeed() < myEnemy.getSpeed())
 		{
 			if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
-			myCharacter.getHP(attackCharacter(myEnemy.getDamage()) - myCharacter.getDef());
+				myCharacter.setHP(attackCharacter(myEnemy.getDamage()) - myCharacter.getDef());
 			if (myCharacter.isDead() == false)
 				attackEnemy(myCharacter.getDamage());
 		}

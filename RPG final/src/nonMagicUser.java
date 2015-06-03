@@ -172,13 +172,13 @@ public class nonMagicUser implements Character
 	}
 
 	@Override
-	public String useItem(Item item)
+	public boolean useItem(Item item)
 	{
 		if (subItem(item))
 		{
-			return "Item successfully used";
+			return true;
 		} else
-			return "You don't have any more of that Item!";
+			return false;
 
 	}
 
