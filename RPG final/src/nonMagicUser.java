@@ -238,9 +238,20 @@ public class nonMagicUser implements Character
 		} else
 			return baseDef;
 	}
-	
+
 	public boolean isMagic()
 	{
 		return false;
+	}
+
+	@Override
+	public String getItems()
+	{
+		String temp = "";
+		for (int i = 0; i < bag.size(); i++)
+		{
+			temp += bag.get(i).getName() + " ";
+		}
+		return temp;
 	}
 }

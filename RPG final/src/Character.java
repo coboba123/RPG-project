@@ -22,8 +22,6 @@ public interface Character
 	
 	public boolean isDead();
 	
-	public boolean noMP();
-	
 	public String getDesc();
 	
 	public void setDesc(String desc);
@@ -51,5 +49,7 @@ public interface Character
 	public int getDef();
 	
 	public boolean isMagic();
+	
+	public String getItems();
 }
 

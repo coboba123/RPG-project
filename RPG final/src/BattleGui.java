@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
 
 public class BattleGui
 {
@@ -16,38 +17,16 @@ public class BattleGui
 	private Monster myEnemy;
 	private JFrame frame;
 	private String path, myHp, myMp, myItems, enemyHp;
-	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args)
-	{
-		EventQueue.invokeLater(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
-					BattleGui window = new BattleGui();
-					window.frame.setVisible(true);
-				} catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 * 
 	 * @wbp.parser.entryPoint
 	 */
-	public BattleGui()
+	public BattleGui(Character c1, Monster c2)
 	{
-		// myCharacter = c1;
-		// myEnemy = c2;
+		 myCharacter = c1;
+		 myEnemy = c2;
 		initialize();
 	}
 
@@ -57,7 +36,7 @@ public class BattleGui
 	private void initialize()
 	{
 		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 500);
+		frame.setBounds(100, 100, 800, 566);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		if (myCharacter.isMagic())
@@ -94,7 +73,7 @@ public class BattleGui
 		}
 		frame.getContentPane().setLayout(null);
 		JLabel label1 = new JLabel(new ImageIcon(image1));
-		label1.setBounds(10, 11, 164, 139);
+		label1.setBounds(610, 11, 164, 139);
 		frame.getContentPane().add(label1);
 
 		JTextArea playerStats = new JTextArea();
@@ -103,10 +82,10 @@ public class BattleGui
 		frame.getContentPane().add(playerStats);
 		
 		myHp = "HP: " + myCharacter.getHP();
-		if (myCharacter.isMagic())
-			myMp = "MP: " + ((MagicUser)myCharacter).getMP();
-		else
-			myMp = "MP: " + 0;
+		
+		myItems = "Bag" + myCharacter.getItems();
+		
+		playerStats.setText(myHp + "\n" + myMp + "\n" + myItems);
 		
 
 		JTextArea battleText = new JTextArea();
@@ -118,6 +97,19 @@ public class BattleGui
 		enemyStats.setEditable(false);
 		enemyStats.setBounds(610, 174, 164, 261);
 		frame.getContentPane().add(enemyStats);
+		
+		enemyHp = "HP:" + myEnemy.getHP();
+		
+		enemyStats.setText(enemyHp + "\n" + myEnemy.getDesc());
+		
+		JButton btnNewButton = new JButton("Fight");
+		btnNewButton.setBounds(168, 463, 135, 41);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnFight = new JButton("Use HP Potion");
+		btnFight.setBounds(468, 463, 135, 41);
+		frame.getContentPane().add(btnFight);
+		
 	}
 
 	public void setVisible()
