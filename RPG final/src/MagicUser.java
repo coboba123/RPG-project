@@ -6,23 +6,20 @@ import java.util.ArrayList;
 public class MagicUser implements Character
 {
 	private String myName, myDesc;
-	private int myHP, myMP, myMoney;
+	private int myHP, myMP, myMoney, baseAtt, baseDef, mySpeed;
 	private ArrayList<Item> bag = new ArrayList<Item>(1);
 	private boolean hasMap;
-	private int mySpeed;
 	private Armor myArmor;
 	private Weapon myWeapon;
 
-	public MagicUser(String name, String desc, int wallet, Armor armor, Weapon weapon)
+	public MagicUser(String name, String desc)
 	{
 		myName = name;
 		myHP = 80;
 		myMP = 50;
-		myMoney = wallet;
-		hasMap = false;
+		myMoney = 0;
+		hasMap = true;
 		mySpeed = 5;
-		myArmor = armor;
-		myWeapon = weapon;
 	}
 
 	/*
@@ -76,7 +73,7 @@ public class MagicUser implements Character
 	public void addHP(int HP)
 	{
 		if (myHP + HP <= 80)
-		myHP += HP;
+			myHP += HP;
 		else
 			myHP = 80;
 	}
@@ -147,7 +144,7 @@ public class MagicUser implements Character
 		else
 			return false;
 	}
-	
+
 	public boolean noMP()
 	{
 		if (myMP <= 0)
@@ -166,11 +163,10 @@ public class MagicUser implements Character
 		myDesc = desc;
 	}
 
-
 	@Override
 	public int getMoney()
 	{
-		
+
 		return myMoney;
 	}
 
@@ -178,48 +174,47 @@ public class MagicUser implements Character
 	public void setMoney(int money)
 	{
 		myMoney = money;
-		
+
 	}
 
 	@Override
 	public void subMoney(int money)
 	{
 		myMoney -= money;
-		
+
 	}
 
 	@Override
 	public void addMoney(int money)
 	{
-		if(myMoney + money >= 2000)
+		if (myMoney + money >= 2000)
 			myMoney = 2000;
 		else
-			myMoney +=  money;
-		
+			myMoney += money;
+
 	}
 
 	@Override
 	public void addItem(Item item)
 	{
 		bag.add(item);
-		
+
 	}
 
 	private boolean subItem(Item item)
 	{
 		int i = 0;
-		while ((Item)bag.get(i) != item && i < bag.size())
+		while ((Item) bag.get(i) != item && i < bag.size())
 		{
 			i++;
 		}
-		if (i != bag.size() && (Item)bag.get(i) == item )
+		if (i != bag.size() && (Item) bag.get(i) == item)
 		{
 			bag.remove(i);
 			return true;
-		}
-		else
+		} else
 			return false;
-		
+
 	}
 
 	@Override
@@ -228,10 +223,9 @@ public class MagicUser implements Character
 		if (subItem(item))
 		{
 			return "Item successfully used";
-		}
-		else
+		} else
 			return "You don't have any more of that Item!";
-		
+
 	}
 
 	public boolean isHasMap()
@@ -243,25 +237,57 @@ public class MagicUser implements Character
 	{
 		this.hasMap = hasMap;
 	}
-	
+
 	public int getSpeed()
 	{
 		return mySpeed;
 	}
 
-	public Armor getArmor() {
+	public Armor getArmor()
+	{
 		return myArmor;
 	}
 
-	public void setArmor(Armor armor) {
+	public void setArmor(Armor armor)
+	{
 		myArmor = armor;
 	}
 
-	public Weapon getWeapon() {
+	public Weapon getWeapon()
+	{
 		return myWeapon;
 	}
 
-	public void setWeapon(Weapon weapon) {
+	public void setWeapon(Weapon weapon)
+	{
 		myWeapon = weapon;
 	}
+
+	@Override
+	public int getDamage()
+	{
+		if (myWeapon != null)
+		{
+			return baseAtt + myWeapon.getAtt();
+		} else
+		{
+			return baseAtt;
+		}
+	}
+
+	@Override
+	public int getDef()
+	{
+		if (myArmor != null)
+		{
+			return myArmor.getDef() + baseDef;
+		} else
+			return baseDef;
+	}
+
+	public boolean isMagic()
+	{
+		return true;
+	}
+
 }

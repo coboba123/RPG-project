@@ -47,7 +47,8 @@ public class Map
 			System.out.println();
 		}
 		cannot = new Room("You cant go that way", 0);
-		(map[2][5]).setLocked(true);
+		map[2][5].setLocked(true);
+		map[5][3].setShop(true);
 	}
 
 	public Room getCurrent()
@@ -83,9 +84,18 @@ public class Map
 	{
 		if (map[vert + 1][hori] != null)
 		{
-			vert++;
-			current = map[vert][hori];
-			return current;
+			if (map[vert + 1][hori].getLocked())
+			{
+				cannot = new Room(
+						"You cant go that way. The door appears to be locked. Maybe there is a key somewhere around here."
+								+ "\n" + "\n" + current.getDesc(), 0);
+				return cannot;
+			} else
+			{
+				vert++;
+				current = map[vert][hori];
+				return current;
+			}
 		} else
 		{
 			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
@@ -97,9 +107,18 @@ public class Map
 	{
 		if (map[vert][hori + 1] != null)
 		{
-			hori++;
-			current = map[vert][hori];
-			return current;
+			if (map[vert][hori + 1].getLocked())
+			{
+				cannot = new Room(
+						"You cant go that way. The door appears to be locked. Maybe there is a key somewhere around here."
+								+ "\n" + "\n" + current.getDesc(), 0);
+				return cannot;
+			} else
+			{
+				hori++;
+				current = map[vert][hori];
+				return current;
+			}
 		} else
 		{
 			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
@@ -111,9 +130,18 @@ public class Map
 	{
 		if (map[vert][hori - 1] != null)
 		{
-			hori--;
-			current = map[vert][hori];
-			return current;
+			if (map[vert][hori - 1].getLocked())
+			{
+				cannot = new Room(
+						"You cant go that way. The door appears to be locked. Maybe there is a key somewhere around here."
+								+ "\n" + "\n" + current.getDesc(), 0);
+				return cannot;
+			} else
+			{
+				hori--;
+				current = map[vert][hori];
+				return current;
+			}
 		} else
 		{
 			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);

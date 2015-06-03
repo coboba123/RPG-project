@@ -45,5 +45,11 @@ public interface Character
 	public void setHasMap(boolean hasMap);
 
 	public int getSpeed();
+
+	public int getDamage();
+
+	public int getDef();
+	
+	public boolean isMagic();
 }
 

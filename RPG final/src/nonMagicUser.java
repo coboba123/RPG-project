@@ -11,21 +11,18 @@ public class nonMagicUser implements Character
 {
 
 	private String myName, myDesc;
-	private int myHP, myMoney;
+	private int myHP, myMoney, mySpeed, baseAtt, baseDef;
 	private ArrayList<Item> bag = new ArrayList<Item>(1);
 	private boolean hasMap;
-
-	private int myWallet;
-	private int mySpeed;
 	private Armor myArmor;
 	private Weapon myWeapon;
 
-	public nonMagicUser(String name, String desc, int wallet, Armor armor, Weapon weapon)
+	public nonMagicUser(String name, String desc)
 	{
 		myName = name;
 		myDesc = desc;
 		myHP = 100;
-		myMoney = wallet;
+		myMoney = 0;
 		setHasMap(false);
 	}
 
@@ -218,5 +215,32 @@ public class nonMagicUser implements Character
 	public void setWeapon(Weapon weapon)
 	{
 		myWeapon = weapon;
+	}
+
+	@Override
+	public int getDamage()
+	{
+		if (myWeapon != null)
+		{
+			return baseAtt + myWeapon.getAtt();
+		} else
+		{
+			return baseAtt;
+		}
+	}
+
+	@Override
+	public int getDef()
+	{
+		if (myArmor != null)
+		{
+			return myArmor.getDef() + baseDef;
+		} else
+			return baseDef;
+	}
+	
+	public boolean isMagic()
+	{
+		return false;
 	}
 }

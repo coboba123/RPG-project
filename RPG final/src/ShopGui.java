@@ -23,22 +23,25 @@ public class ShopGui
 	public ShopGui(Character character)
 	{
 		myCharacter = character;
+		initialize();
+		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public void initialize()
+	private void initialize()
 	{
 		String words = "";
 		frame = new JFrame();
-		frame.setBounds(100, 100, 500, 612);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setAlwaysOnTop(true);
+		getFrame().setBounds(800, 0, 500, 658);
+		getFrame().setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
 		textArea.setBounds(38, 394, 413, 22);
-		frame.getContentPane().add(textArea);
+		getFrame().getContentPane().add(textArea);
 		words = "Current Money: " + myCharacter.getMoney();
 		textArea.setText(words);
 
@@ -53,10 +56,10 @@ public class ShopGui
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		frame.getContentPane().setLayout(null);
+		getFrame().getContentPane().setLayout(null);
 		JLabel label = new JLabel(new ImageIcon(image));
 		label.setBounds(38, 0, 413, 385);
-		frame.getContentPane().add(label);
+		getFrame().getContentPane().add(label);
 
 		JButton btnHPPotion = new JButton("HP Potion - 200G (50 HP)");
 		btnHPPotion.addActionListener(new ActionListener()
@@ -77,7 +80,7 @@ public class ShopGui
 			}
 		});
 		btnHPPotion.setBounds(10, 427, 441, 39);
-		frame.getContentPane().add(btnHPPotion);
+		getFrame().getContentPane().add(btnHPPotion);
 
 		JButton btnMPPotion = new JButton("MP Potion - 200G (50 MP)");
 		btnMPPotion.addActionListener(new ActionListener()
@@ -98,7 +101,7 @@ public class ShopGui
 			}
 		});
 		btnMPPotion.setBounds(10, 477, 441, 39);
-		frame.getContentPane().add(btnMPPotion);
+		getFrame().getContentPane().add(btnMPPotion);
 
 		JButton btnMap = new JButton("Map - 500");
 		btnMap.addActionListener(new ActionListener()
@@ -118,7 +121,27 @@ public class ShopGui
 			}
 		});
 		btnMap.setBounds(10, 527, 441, 39);
-		frame.getContentPane().add(btnMap);
+		getFrame().getContentPane().add(btnMap);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getFrame().setVisible(false);
+			}
+		});
+		btnExit.setBounds(10, 577, 441, 39);
+		getFrame().getContentPane().add(btnExit);
 
+	}
+
+	public JFrame getFrame()
+	{
+		return frame;
+	}
+	
+
+	public void setVisible()
+	{
+		frame.setVisible(true);
 	}
 }

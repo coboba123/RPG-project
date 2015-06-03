@@ -3,11 +3,10 @@
  */
 public class Monster 
 {
-	private int myHP;
-	private int mySpeed;
-	private int attVal;
+	private int myHP, mySpeed, attVal, baseDef;
+	private String path;
 	
-	public Monster (int HP, int speed, int att)
+	public Monster (int HP, int speed, int att, int baseDef)
 	{
 		myHP = HP;
 		mySpeed = speed;
@@ -41,4 +40,25 @@ public class Monster
 		else
 			return false;
 	}
+	
+	public int getDef()
+	{
+		return baseDef;
+	}
+
+	public int getDamage()
+	{
+		return attVal;
+	}
+
+	public String getPath()
+	{
+		return path;
+	}
+
+	public void setPath(String path)
+	{
+		this.path = path;
+	}
+	
 }

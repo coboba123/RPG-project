@@ -8,7 +8,7 @@ public class battle
 {
 	// instance variables - replace the example below with your own
 	private Character myCharacter;
-	private Character myEnemy;
+	private Monster myEnemy;
 
 	/**
 	 * Constructor for objects of class Battle
@@ -48,9 +48,9 @@ public class battle
 				attackEnemy(0);
 			else
 			{
-				myEnemy.setHP(attackEnemy(myCharacter.getDamage() - myEnemy.getArmor()));
-				if (myEnemy.isDead() == false && myCharacter.getArmor() < myEnemy.getAttack())
-					myCharacter.setHP(attackCharacter(myEnemy.getDamage() - myCharacter.getArmor()));						
+				myEnemy.setHP(attackEnemy(myCharacter.getDamage() - myEnemy.getDef()));
+				if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
+					myCharacter.setHP(attackCharacter(myEnemy.getDef()) - myCharacter.getDef());						
 			}
 		} else if (myCharacter.getSpeed() == myEnemy.getSpeed())
 		{
