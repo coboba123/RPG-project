@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class MagicUser implements Character
 {
 	private String myName, myDesc;
-	private int myHP, myMoney, baseAtt, baseDef, mySpeed;
+	private int myHP, myMP, myMoney, baseAtt, baseDef, mySpeed;
 	private ArrayList<Item> bag = new ArrayList<Item>(1);
 	private boolean hasMap;
 	private Armor myArmor;
@@ -16,8 +16,9 @@ public class MagicUser implements Character
 	{
 		myName = name;
 		myHP = 80;
+		myMP = 50;
 		myMoney = 0;
-		hasMap = true;
+		hasMap = false;
 		mySpeed = 5;
 	}
 
@@ -90,10 +91,63 @@ public class MagicUser implements Character
 			myHP = 0;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see Character#getMP()
+	 */
+	public int getMP()
+	{
+		return myMP;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see Character#setMP()
+	 */
+	public void setMP(int MP)
+	{
+		if (MP > 50)
+			myMP = 50;
+		else
+			myMP = MP;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see Character#addMP(int)
+	 */
+	public void addMP(int MP)
+	{
+		if (myMP + MP <= 50)
+			myMP += MP;
+		else
+			myMP = 50;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see Character#subMP(int)
+	 */
+	public void subMP(int MP)
+	{
+		if (myMP - MP >= 0)
+			myMP -= MP;
+		else
+			myMP = 0;
+	}
+
 	@Override
 	public boolean isDead()
 	{
 		if (myHP <= 0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean noMP()
+	{
+		if (myMP <= 0)
 			return true;
 		else
 			return false;
@@ -234,17 +288,6 @@ public class MagicUser implements Character
 	public boolean isMagic()
 	{
 		return true;
-	}
-
-	@Override
-	public String getItems()
-	{
-		String temp = "";
-		for (int i = 0; i < bag.size(); i++)
-		{
-			temp += bag.get(i).getName() + " ";
-		}
-		return temp;
 	}
 
 }

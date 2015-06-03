@@ -146,6 +146,7 @@ public class BattleGui
 				attackEnemy(0);
 			else
 			{
+				if (myCharacter.isDead() == false && myEnemy.getDef() < myCharacter.getDamage())
 				myEnemy.setHP(attackEnemy(myCharacter.getDamage() - myEnemy.getDef()));
 				if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
 					myCharacter.setHP(attackCharacter(myEnemy.getDef()) - myCharacter.getDef());
@@ -158,14 +159,28 @@ public class BattleGui
 					attackEnemy(0);
 				else
 				{
-					attackEnemy(myCharacter.getDamage());
-					if (myEnemy.isDead() == false)
-						attackCharacter(myEnemy.getDamage());
+					if (myCharacter.isDead() == false && myEnemy.getDef() < myCharacter.getDamage())
+						myEnemy.setHP(attackEnemy(myCharacter.getDamage()) - myEnemy.getDef());
+					if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
+						myCharacter.setHP(attackCharacter(myEnemy.getDamage()) - myCharacter.getDef());
+				}
+			}
+			else
+			{
+				if (isMiss() == true)
+					attackCharacter(0);
+				else
+				{
+					if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
+						myCharacter.setHP(attackCharacter(myEnemy.getDamage()) - myCharacter.getDef());
+					if (myCharacter.isDead() == false && myEnemy.getDef() < myCharacter.getDamage())
+						myEnemy.setHP(attackEnemy(myCharacter.getDamage()) - myEnemy.getDef());
 				}
 			}
 		} else if (myCharacter.getSpeed() < myEnemy.getSpeed())
 		{
-			attackCharacter(myEnemy.getDamage());
+			if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
+			myCharacter.getHP(attackCharacter(myEnemy.getDamage()) - myCharacter.getDef());
 			if (myCharacter.isDead() == false)
 				attackEnemy(myCharacter.getDamage());
 		}
