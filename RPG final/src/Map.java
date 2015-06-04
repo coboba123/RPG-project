@@ -56,7 +56,7 @@ public class Map
 
 	public void setMagicItems()
 	{
-		map[2][1].setItem(new Armor("Cloak of Ages", 5));
+		map[2][1].setItem(new Armor("Cloak of Deception", 5));
 		map[2][1].setHasArmor(true);
 		map[6][5].setItem(new Weapon("Rod of Ages", 5));
 		map[6][5].setHasWeapon(true);
@@ -66,7 +66,7 @@ public class Map
 	{
 		map[2][1].setItem(new Armor("Obsidian Armor", 5));
 		map[2][1].setHasArmor(true);
-		map[6][5].setItem(new Weapon("Sword of Glory", 5));
+		map[6][5].setItem(new Weapon("Sword of Lazeroth", 5));
 		map[6][5].setHasWeapon(true);
 	}
 
@@ -82,7 +82,7 @@ public class Map
 			if (map[vert - 1][hori].getLocked())
 			{
 				cannot = new Room(
-						"You cant go that way. The door appears to be locked. Maybe there is a key somewhere around here."
+						"You can't go that way. The door appears to be locked. Maybe there is a key somewhere around here."
 								+ "\n" + "\n" + current.getDesc(), 0);
 				return cannot;
 			} else
@@ -93,7 +93,7 @@ public class Map
 			}
 		} else
 		{
-			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
+			cannot = new Room("You can't go that way" + "\n" + "\n" + current.getDesc(), 0);
 			return cannot;
 		}
 
@@ -108,7 +108,7 @@ public class Map
 				if (!(myCharacter.hasKey()))
 				{
 					cannot = new Room(
-							"You cant go that way. The door appears to be locked. Maybe there is a key somewhere around here."
+							"You can't go that way. The door appears to be locked. Maybe there is a key somewhere around here."
 									+ "\n" + "\n" + current.getDesc(), 0);
 					return cannot;
 				} else
@@ -125,7 +125,7 @@ public class Map
 			}
 		} else
 		{
-			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
+			cannot = new Room("You can't go that way" + "\n" + "\n" + current.getDesc(), 0);
 			return cannot;
 		}
 	}
@@ -139,7 +139,7 @@ public class Map
 				if (!(myCharacter.hasKey()))
 				{
 					cannot = new Room(
-							"You cant go that way. The door appears to be locked. Maybe there is a key somewhere around here."
+							"You can't go that way. The door appears to be locked. Maybe there is a key somewhere around here."
 									+ "\n" + "\n" + current.getDesc(), 0);
 					return cannot;
 				} else
@@ -156,7 +156,7 @@ public class Map
 			}
 		} else
 		{
-			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
+			cannot = new Room("You can't go that way" + "\n" + "\n" + current.getDesc(), 0);
 			return cannot;
 		}
 	}
@@ -170,7 +170,7 @@ public class Map
 				if (!(myCharacter.hasKey()))
 				{
 					cannot = new Room(
-							"You cant go that way. The door appears to be locked. Maybe there is a key somewhere around here."
+							"You can't go that way. The door appears to be locked. Maybe there is a key somewhere around here."
 									+ "\n" + "\n" + current.getDesc(), 0);
 					return cannot;
 				} else
@@ -187,7 +187,7 @@ public class Map
 			}
 		} else
 		{
-			cannot = new Room("You cant go that way" + "\n" + "\n" + current.getDesc(), 0);
+			cannot = new Room("You can't go that way" + "\n" + "\n" + current.getDesc(), 0);
 			return cannot;
 		}
 	}

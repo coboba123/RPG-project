@@ -19,50 +19,50 @@ A supply room. There appears to be a chest here but it has already been looted. 
 50
 none
 none
-It looks like an Armory. There is a chest in the middle, maybe there is something I can use in there. The only exit is to the East.
+It looks like an Armory. There is a chest in the middle; maybe there is something you can use in there. The only exit is to the East.
 60
 A hallway that opens to the East and West. It looks like the Armory is to the West.
 50
 It looks like a huge ball room. There are openings to the North, East, South and West.
 50
-a dark and stormy room. there is a giant locked door to the east.
+A dark and steamy room. There is a giant locked door to the East. There is a door to the North and an opening to the West.
 100
 The Dungeon Master's Room.
 0
-a dark and stormy room.
+It is a hallway with a giant locked door to the East. The supply room appears to be to the North, and there is a moldy door  to the South.
 40
 none
 none
 none
 none
-a dark and stormy room.
+It's a decorated hallway, there are various paintings covering the wall, but time has certainly taken it's toll. The hallway continues in both the North and South.
 50
 none
 none
-a dark and stormy room.
+The hallway with various windows. Outside, you can see a waste land of dead trees and such. the hallway continues in both the North and South.
 40
 none
 none
 none
 none
-a dark and stormy room.
+A hallway that is decorated with candles and intricate wallpaper, however it is deteriorating and tearing. The hallway continues to the North and South. The shopkeeper can be seen in the South.
 30
 none
-a dark and stormy room.
-40
-a dark and stormy room.
+A bend in the hallway, there are openings to the West and North. You can see a window that shows the waste land outside.
+50
+A bend in the hallway, there are openings to the East and South.
 50
 none
 none
-a dark and stormy room.
+There is a bend in the stairs to the basement. You can see a door to the south, and the stairs extend to the East.
 30
-a dark and stormy room.
+The room seems to descend with stairs to the West. You can see the Shopkeeper to the East.
 40
-The Room divides into four directions. In the center appears to be a Demonic shopkeeper. He appears to be friendly.
+The Room divides into four directions. In the center appears to be a Demonic shopkeeper, but he appears to be friendly.
 0
-a dark and stormy room
+The room seems to connect to the East and to the West. 
 40
-a dark and stormy room
+The room has many torn furniture that appears to have been fancy at one point in time. There seems to be a master bedroom to the South, maybe you can find something in there. The room opens to the North and West.
 60
 none
 none
@@ -73,7 +73,7 @@ none
 The Entrance to the dungeon. The Dungeon Master here is a threat to the world, you must defeat him.
 0
 none
-a dark and stormy room. there appears to be a chest here. 
+The master bedroom. There is a chest in the foot of the bed.
 50
 none
 none

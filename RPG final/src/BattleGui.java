@@ -1,3 +1,4 @@
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +13,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * @author Cody and Alex and Daniel
+ * This is the battle system used in the game. This is called when a battle occurs, 
+ * usually at a random chance or in the boss room.
+ *
+ */
 public class BattleGui
 {
 	// instance variables
@@ -23,7 +30,8 @@ public class BattleGui
 
 	/**
 	 * Create the application.
-	 * 
+	 * @param c1 needs the player character.
+	 * @param c2 needs a Monster for the player to fight.
 	 * @wbp.parser.entryPoint
 	 */
 	public BattleGui(Character c1, Monster c2)
@@ -34,15 +42,18 @@ public class BattleGui
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the contents of the frame. This creates and gets all the images and values
+	 * that are used in the battle for the stats and interactions.
 	 */
 	private void initialize()
 	{
+		//creates the frame of the battle
 		frame = new JFrame();
 		frame.setAlwaysOnTop(true);
 		frame.setBounds(100, 100, 800, 566);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		//imports the pictures for the character, depending if it is a wizard or knight
 		if (myCharacter.isMagic())
 			path = "wizard.gif";
 		else
@@ -63,8 +74,8 @@ public class BattleGui
 		label.setBounds(10, 11, 164, 139);
 		frame.getContentPane().add(label);
 
+		//imports the image for the enemy being battled with
 		path = myEnemy.getPath();
-
 		File file1 = new File(path);
 		BufferedImage image1 = null;
 		try
@@ -80,6 +91,7 @@ public class BattleGui
 		label1.setBounds(610, 11, 164, 139);
 		frame.getContentPane().add(label1);
 
+		//Holds the stats of the player, such as HP and Name and amount of potions left.
 		JTextArea playerStats = new JTextArea();
 		playerStats.setEditable(false);
 		playerStats.setBounds(10, 174, 164, 261);
@@ -90,7 +102,8 @@ public class BattleGui
 		myItems = "Bag: " + myCharacter.getItems();
 
 		playerStats.setText(myCharacter.getName() + "\n" + myHp + "\n" + myItems);
-
+		
+		//The battle text that shows what is occurring during the battle 
 		JTextArea battleText = new JTextArea();
 		battleText.setLineWrap(true);
 		battleText.setEditable(false);
@@ -152,7 +165,7 @@ public class BattleGui
 
 				enemyStats.setText(myEnemy.getName() + "\n" + enemyHp + "\n\n" + myEnemy.getDesc());
 
-				if (times > 5)
+				if (times > 3)
 				{
 					battleText1 = "";
 					times = 0;

@@ -7,10 +7,16 @@
  */
 public interface Item
 {
-	// sets name of the item
+	
+	/**
+	 * @param name
+	 */
 	public void setName(String name);
 
-	// returns name of the item
+	
+	/**
+	 * @return
+	 */
 	public String getName();
 
 }
