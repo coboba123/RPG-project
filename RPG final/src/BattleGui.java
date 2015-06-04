@@ -276,8 +276,10 @@ public class BattleGui
 			if (Math.random() >= 0.5)
 			{
 				if (isMiss() == true)
+				{
 					attackEnemy(0);
-				else
+					battleText1 += "You attacked but it was a miss!\n\n";
+				} else
 				{
 					if (myCharacter.isDead() == false)
 						myEnemy.setHP(attackEnemy(myCharacter.getDamage()) - myEnemy.getDef());
@@ -288,8 +290,10 @@ public class BattleGui
 			} else
 			{
 				if (isMiss() == true)
+				{
 					attackCharacter(0);
-				else
+					battleText1 += "You attacked but it was a miss!\n\n";
+				} else
 				{
 					if (myEnemy.isDead() == false)
 						myCharacter.setHP(attackCharacter(myEnemy.getAttack())

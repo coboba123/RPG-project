@@ -9,21 +9,21 @@ none
 none
 none
 none
-a dark and stormy room.
+An empty room. There are pathways to the East and to the South. The walls are moldy and feel like they will collapse at any moment.
 60
-a dark and stormy room.
+A main room that opens to the East, South and West. 
 50
-a dark and stormy room.
+A part of the main room that opens to the East and to the West. The door to the south appears to be locked. Maybe thats where the dungeon master is.
 50
-a dark and stormy room. there appears to be a chest in the center
+A supply room. There appears to be a chest here but it has already been looted. looks like someone got here before you. There are doors to the South and to the West.
 50
 none
 none
-a dark and stormy room. there appears to be a chest in the center
+It looks like an Armory. There is a chest in the middle, maybe there is something I can use in there. The only exit is to the East.
 60
-a dark and stormy room.
+A hallway that opens to the East and West. It looks like the Armory is to the West.
 50
-a dark and stormy room.
+It looks like a huge ball room. There are openings to the North, East, South and West.
 50
 a dark and stormy room. there is a giant locked door to the east.
 100

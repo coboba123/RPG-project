@@ -24,6 +24,7 @@ public class Gui
 	private String mName, path, mDesc;
 	private int hp, speed, att, def, num;
 	private boolean magic;
+	private Monster boss;
 
 	/**
 	 * Create the application.
@@ -59,6 +60,8 @@ public class Gui
 			monsters[i] = new Monster(mName, mDesc, path, hp, speed, att, def);
 		}
 		magic = isMagic;
+		boss = new Monster("Cho'Gath", "The Devourer of Worlds, The Master of this Dungeon",
+				"chogath.png", 200, 5, 25, 0);
 		initialize();
 	}
 
@@ -82,7 +85,9 @@ public class Gui
 		textArea1.setWrapStyleWord(true);
 		textArea1.setLineWrap(true);
 		textArea1.setFont(new Font("Book Antiqua", Font.PLAIN, 15));
-		textArea1.setText("Welcome to the game");
+		textArea1
+				.setText("You are a Adventurer who is at the entrance to the Dungeon of Doom to defeat the dungeon master."
+						+ "He is threatening the world and you are here to defeat him.");
 		textArea1.setEditable(false);
 		textArea1.setBounds(10, 10, 764, 291);
 		frame.getContentPane().add(textArea1);
@@ -115,11 +120,10 @@ public class Gui
 					label5.setVisible(true);
 				if (map.getCurrent().HasBoss())
 				{
-					BattleGui battle = new BattleGui(myCharacter, new Monster("Cho'Gath",
-							"The Devourer of Worlds, The Master of this Dungeon", "chogath.png",
-							200, 10, 25, 0));
+					BattleGui battle = new BattleGui(myCharacter, boss);
 					battle.setVisible();
-					textArea1.setText("You Deafeated the Dungeon Master and saved the world! congratulations!");
+					textArea1
+							.setText("You Deafeated the Dungeon Master and saved the world! congratulations!");
 				} else if ((map.getCurrent()).getRate() > Math.random() * 100)
 				{
 
@@ -143,11 +147,10 @@ public class Gui
 				textArea1.setText(((Room) map.moveSouth(myCharacter)).getDesc());
 				if (map.getCurrent().HasBoss())
 				{
-					BattleGui battle = new BattleGui(myCharacter, new Monster("Cho'Gath",
-							"The Devourer of Worlds, The Master of this Dungeon", "chogath.png",
-							200, 10, 25, 0));
+					BattleGui battle = new BattleGui(myCharacter, boss);
 					battle.setVisible();
-					textArea1.setText("You Deafeated the Dungeon Master and saved the world! congratulations!");
+					textArea1
+							.setText("You Deafeated the Dungeon Master and saved the world! congratulations!");
 				} else if (myCharacter.isHasMap())
 					label5.setVisible(true);
 				if ((map.getCurrent()).getRate() > Math.random() * 100)
@@ -175,11 +178,10 @@ public class Gui
 					label5.setVisible(true);
 				if (map.getCurrent().HasBoss())
 				{
-					BattleGui battle = new BattleGui(myCharacter, new Monster("Cho'Gath",
-							"The Devourer of Worlds, The Master of this Dungeon", "chogath.png",
-							200, 10, 25, 0));
+					BattleGui battle = new BattleGui(myCharacter, boss);
 					battle.setVisible();
-					textArea1.setText("You Deafeated the Dungeon Master and saved the world! congratulations!");
+					textArea1
+							.setText("You Deafeated the Dungeon Master and saved the world! congratulations!");
 				} else if ((map.getCurrent()).getRate() > Math.random() * 100)
 				{
 
@@ -202,11 +204,10 @@ public class Gui
 				textArea1.setText(((Room) map.moveNorth()).getDesc());
 				if (map.getCurrent().HasBoss())
 				{
-					BattleGui battle = new BattleGui(myCharacter, new Monster("Cho'Gath",
-							"The Devourer of Worlds, The Master of this Dungeon", "chogath.png",
-							200, 10, 25, 0));
+					BattleGui battle = new BattleGui(myCharacter, boss);
 					battle.setVisible();
-					textArea1.setText("You Deafeated the Dungeon Master and saved the world! congratulations!");
+					textArea1
+							.setText("You Deafeated the Dungeon Master and saved the world! congratulations!");
 				} else if (myCharacter.isHasMap())
 					label5.setVisible(true);
 				if ((map.getCurrent()).getRate() > Math.random() * 100)

@@ -4,13 +4,16 @@
 public class Armor implements Item
 {
 
-	/*
-	 * (non-Javadoc)
-	 * @see Item#setName(java.lang.String)
+	/**
+	 * 
 	 */
 	private String myName;
 	private int defValue;
 
+	/**
+	 * @param name
+	 * @param def
+	 */
 	public Armor(String name, int def)
 	{
 		myName = name;
@@ -23,10 +26,6 @@ public class Armor implements Item
 		myName = name;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see Item#getName()
-	 */
 	@Override
 	public String getName()
 	{
