@@ -3,15 +3,20 @@
  */
 public class Monster 
 {
-	private int myHP, mySpeed, attVal, baseDef;
-	private String path, Desc, name;
+	private int maxHp,myHP, mySpeed, attVal, baseDef;
+	private String myPath, Desc, myName;
 	
-	public Monster (String name, String desc, int HP, int speed, int att, int baseDef)
+	public Monster (String name, String desc, String path, int HP, int speed, int att, int def)
 	{
+		myName = name;
+		Desc = desc;
+		maxHp = HP;
 		myHP = HP;
 		mySpeed = speed;
 		attVal = att;
-		this.baseDef = baseDef;
+		baseDef = def;
+		myPath = path;
+		
 	}
 	
 	public int getHP()
@@ -54,12 +59,12 @@ public class Monster
 
 	public String getPath()
 	{
-		return path;
+		return myPath;
 	}
 
 	public void setPath(String path)
 	{
-		this.path = path;
+		myPath = path;
 	}
 
 	public String getDesc()
@@ -70,6 +75,21 @@ public class Monster
 	public void setDesc(String desc)
 	{
 		Desc = desc;
+	}
+
+	public String getName()
+	{
+		return myName;
+	}
+
+	public void setName(String name)
+	{
+		myName = name;
+	}
+	
+	public void heal()
+	{
+		myHP = maxHp;
 	}
 	
 }

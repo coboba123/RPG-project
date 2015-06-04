@@ -1,4 +1,3 @@
-import java.awt.EventQueue;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +18,8 @@ public class BattleGui
 	private Character myCharacter;
 	private Monster myEnemy;
 	private JFrame frame;
-	private String path, myHp, myMp, myItems, enemyHp, battleText1;
+	private String path, myHp, myItems, enemyHp, battleText1 = "";
+	private int money, times = 0;
 
 	/**
 	 * Create the application.
@@ -39,6 +39,7 @@ public class BattleGui
 	private void initialize()
 	{
 		frame = new JFrame();
+		frame.setAlwaysOnTop(true);
 		frame.setBounds(100, 100, 800, 566);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -84,19 +85,55 @@ public class BattleGui
 		playerStats.setBounds(10, 174, 164, 261);
 		frame.getContentPane().add(playerStats);
 
+		myHp = "HP: " + myCharacter.getHP();
+
+		myItems = "Bag: " + myCharacter.getItems();
+
+		playerStats.setText(myCharacter.getName() + "\n" + myHp + "\n" + myItems);
+
 		JTextArea battleText = new JTextArea();
+		battleText.setLineWrap(true);
 		battleText.setEditable(false);
 		battleText.setBounds(200, 11, 383, 424);
 		frame.getContentPane().add(battleText);
 
 		JTextArea enemyStats = new JTextArea();
+		enemyStats.setLineWrap(true);
+		enemyStats.setWrapStyleWord(true);
 		enemyStats.setEditable(false);
 		enemyStats.setBounds(610, 174, 164, 261);
 		frame.getContentPane().add(enemyStats);
 
 		enemyHp = "HP:" + myEnemy.getHP();
 
-		enemyStats.setText(enemyHp + "\n" + myEnemy.getDesc());
+		enemyStats.setText(myEnemy.getName() + "\n" + enemyHp + "\n\n" + myEnemy.getDesc());
+
+		JButton btnHp = new JButton("Use HP Potion");
+		btnHp.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				if (myCharacter.usePotion())
+				{
+					battleText1 += "Potion used. 50 HP restored.\n\n";
+					myCharacter.addHP(50);
+				} else
+					battleText1 += "You don't have any potions left!\n\n";
+				battleText.setText(battleText1);
+				myHp = "HP: " + myCharacter.getHP();
+
+				myItems = "Bag: " + myCharacter.getItems();
+
+				playerStats.setText(myCharacter.getName() + "\n" + myHp + "\n" + myItems);
+
+				enemyHp = "HP:" + myEnemy.getHP();
+
+				enemyStats.setText(myEnemy.getName() + "\n" + enemyHp + "\n\n" + myEnemy.getDesc());
+
+			}
+		});
+		btnHp.setBounds(458, 463, 135, 41);
+		frame.getContentPane().add(btnHp);
 
 		JButton btnFight = new JButton("Fight");
 		btnFight.addActionListener(new ActionListener()
@@ -104,50 +141,73 @@ public class BattleGui
 			public void actionPerformed(ActionEvent arg0)
 			{
 				fight();
+
 				myHp = "HP: " + myCharacter.getHP();
 
-				myItems = "Bag" + myCharacter.getItems();
+				myItems = "Bag: " + myCharacter.getItems();
 
-				playerStats.setText(myCharacter.getName() + "\n" + myHp + "\n" + myMp + "\n"
-						+ myItems);
+				playerStats.setText(myCharacter.getName() + "\n" + myHp + "\n" + myItems);
 
 				enemyHp = "HP:" + myEnemy.getHP();
 
-				enemyStats.setText(enemyHp + "\n" + myEnemy.getDesc());
+				enemyStats.setText(myEnemy.getName() + "\n" + enemyHp + "\n\n" + myEnemy.getDesc());
+
+				if (times > 5)
+				{
+					battleText1 = "";
+					times = 0;
+				}
+
+				else
+					times++;
+
 				battleText.setText(battleText1);
+				if (myCharacter.isDead())
+				{
+					battleText1 += "You have been defeated. Game Over";
+					battleText.setText(battleText1);
+					btnFight.setVisible(false);
+					btnHp.setVisible(false);
+					JButton btnExit = new JButton("Exit");
+					btnExit.addActionListener(new ActionListener()
+					{
+						public void actionPerformed(ActionEvent arg0)
+						{
+							System.exit(0);
+						}
+					});
+					btnExit.setBounds(313, 463, 135, 41);
+					frame.getContentPane().add(btnExit);
+				}
+				if (myEnemy.isDead())
+				{
+					money = 100 + (int) (Math.random() * 200);
+					battleText1 += "You successfully Defeated " + myEnemy.getName()
+							+ "!\n\nYou earned " + money + " Gold!";
+					myCharacter.addMoney(money);
+					battleText.setText(battleText1);
+					btnFight.setVisible(false);
+					btnHp.setVisible(false);
+
+					JButton btnExit = new JButton("Exit");
+					btnExit.addActionListener(new ActionListener()
+					{
+						public void actionPerformed(ActionEvent arg0)
+						{
+							myEnemy.heal();
+							frame.setVisible(false);
+						}
+					});
+					btnExit.setBounds(313, 463, 135, 41);
+					frame.getContentPane().add(btnExit);
+					btnExit.setVisible(true);
+
+				}
 
 			}
 		});
 		btnFight.setBounds(168, 463, 135, 41);
 		frame.getContentPane().add(btnFight);
-
-		JButton btnHp = new JButton("Use HP Potion");
-		btnHp.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				if (myCharacter.useItem(new Potion("HP Potion", "Heals your character for 50", 50)))
-				{
-					battleText1 += "\n\nPotion used. 50 HP restored.";
-					myCharacter.addHP(50);
-				} else
-					battleText1 += "\n\nYou don't have any potions left!";
-				battleText.setText(battleText1);
-				myHp = "HP: " + myCharacter.getHP();
-
-				myItems = "Bag" + myCharacter.getItems();
-
-				playerStats.setText(myCharacter.getName() + "\n" + myHp + "\n" + myMp + "\n"
-						+ myItems);
-
-				enemyHp = "HP:" + myEnemy.getHP();
-
-				enemyStats.setText(enemyHp + "\n" + myEnemy.getDesc());
-
-			}
-		});
-		btnHp.setBounds(468, 463, 135, 41);
-		frame.getContentPane().add(btnHp);
 
 	}
 
@@ -166,15 +226,33 @@ public class BattleGui
 	public int attackCharacter(int eDamage)
 	{
 		if (isCritical() == true)
+		{
+			battleText1 += "The " + myEnemy.getName() + " critically attacked you for "
+					+ ((eDamage * 2) + myCharacter.getDef()) + " damage!\n\n";
 			return myCharacter.getHP() - 2 * eDamage;
+		}
+		if (eDamage == 0)
+			battleText1 += "The " + myEnemy.getName() + " missed you!";
+		else
+			battleText1 += "The " + myEnemy.getName() + " attacked you for "
+					+ (eDamage + myCharacter.getDef()) + " damage!\n\n";
 		return myCharacter.getHP() - eDamage;
 	}
 
 	public int attackEnemy(int cDamage)
 	{
-		if (isCritical() == true)
-			return myEnemy.getHP() - 2 * cDamage;
-		return myEnemy.getHP() - cDamage;
+		if (cDamage != 0)
+		{
+			if (isCritical() == true)
+			{
+				battleText1 += "You attacked and it was a criticle hit for " + ((cDamage * 2))
+						+ " damage!\n\n";
+				return myEnemy.getHP() - 2 * cDamage;
+			}
+			battleText1 += "You attacked for " + (cDamage) + " damage!\n\n";
+			return myEnemy.getHP() - cDamage;
+		} else
+			return 0;
 	}
 
 	public void fight()
@@ -182,13 +260,16 @@ public class BattleGui
 		if (myCharacter.getSpeed() > myEnemy.getSpeed())
 		{
 			if (isMiss() == true)
-				attackEnemy(0);
-			else
 			{
-				if (myCharacter.isDead() == false && myEnemy.getDef() < myCharacter.getDamage())
-					myEnemy.setHP(attackEnemy(myCharacter.getDamage() - myEnemy.getDef()));
-				if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
-					myCharacter.setHP(attackCharacter(myEnemy.getDef()) - myCharacter.getDef());
+				attackEnemy(0);
+				battleText1 += "You attacked but it was a miss!\n\n";
+			} else
+			{
+				if (myCharacter.isDead() == false)
+					myEnemy.setHP(attackEnemy((myCharacter.getDamage() - myEnemy.getDef())));
+
+				if (myEnemy.isDead() == false)
+					myCharacter.setHP(attackCharacter(myEnemy.getAttack()) - myCharacter.getDef());
 			}
 		} else if (myCharacter.getSpeed() == myEnemy.getSpeed())
 		{
@@ -198,11 +279,11 @@ public class BattleGui
 					attackEnemy(0);
 				else
 				{
-					if (myCharacter.isDead() == false && myEnemy.getDef() < myCharacter.getDamage())
+					if (myCharacter.isDead() == false)
 						myEnemy.setHP(attackEnemy(myCharacter.getDamage()) - myEnemy.getDef());
-					if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
-						myCharacter.setHP(attackCharacter(myEnemy.getDamage())
-								- myCharacter.getDef());
+					if (myEnemy.isDead() == false)
+						myCharacter.setHP(attackCharacter(myEnemy.getAttack()
+								- myCharacter.getDef()));
 				}
 			} else
 			{
@@ -210,19 +291,19 @@ public class BattleGui
 					attackCharacter(0);
 				else
 				{
-					if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
-						myCharacter.setHP(attackCharacter(myEnemy.getDamage())
+					if (myEnemy.isDead() == false)
+						myCharacter.setHP(attackCharacter(myEnemy.getAttack())
 								- myCharacter.getDef());
-					if (myCharacter.isDead() == false && myEnemy.getDef() < myCharacter.getDamage())
+					if (myCharacter.isDead() == false)
 						myEnemy.setHP(attackEnemy(myCharacter.getDamage()) - myEnemy.getDef());
 				}
 			}
 		} else if (myCharacter.getSpeed() < myEnemy.getSpeed())
 		{
-			if (myEnemy.isDead() == false && myCharacter.getDef() < myEnemy.getAttack())
-				myCharacter.setHP(attackCharacter(myEnemy.getDamage()) - myCharacter.getDef());
+			if (myEnemy.isDead() == false)
+				myCharacter.setHP(attackCharacter(myEnemy.getAttack()) - myCharacter.getDef());
 			if (myCharacter.isDead() == false)
-				attackEnemy(myCharacter.getDamage());
+				attackEnemy(myCharacter.getDamage() - myEnemy.getDef());
 		}
 	}
 

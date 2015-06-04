@@ -9,13 +9,11 @@ public class Armor implements Item
 	 * @see Item#setName(java.lang.String)
 	 */
 	private String myName;
-	private String myDesc;
 	private int defValue;
 
-	public Armor(String name, String desc, int def)
+	public Armor(String name, int def)
 	{
 		myName = name;
-		myDesc = desc;
 		defValue = def;
 	}
 
@@ -24,7 +22,7 @@ public class Armor implements Item
 	{
 		myName = name;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see Item#getName()
@@ -44,16 +42,6 @@ public class Armor implements Item
 	{
 		defValue = def;
 
-	}
-
-	public String getDesc()
-	{
-		return myDesc;
-	}
-
-	public void setDesc(String desc)
-	{
-		myDesc = desc;
 	}
 
 }

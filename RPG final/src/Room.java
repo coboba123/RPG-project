@@ -9,7 +9,8 @@ public class Room
 {
 	private String roomDesc;
 	private int enemyRate;
-	private Boolean locked = false, shop = false;
+	private Boolean locked = false, shop = false, hasKey = false, hasArmor = false,
+			hasWeapon = false, hasBoss = false;
 	private Item item;
 
 	public Room(String description, int rate)
@@ -81,6 +82,46 @@ public class Room
 	public void setShop(boolean temp)
 	{
 		shop = temp;
+	}
+
+	public Boolean HasKey()
+	{
+		return hasKey;
+	}
+
+	public void setHasKey(Boolean hasKey)
+	{
+		this.hasKey = hasKey;
+	}
+
+	public boolean hasArmor()
+	{
+		return hasArmor;
+	}
+
+	public boolean hasWeapon()
+	{
+		return hasWeapon;
+	}
+
+	public void setHasArmor(boolean temp)
+	{
+		hasArmor = temp;
+	}
+
+	public void setHasWeapon(boolean temp)
+	{
+		hasWeapon = temp;
+	}
+
+	public Boolean HasBoss()
+	{
+		return hasBoss;
+	}
+
+	public void setHasBoss(Boolean hasBoss)
+	{
+		this.hasBoss = hasBoss;
 	}
 
 }

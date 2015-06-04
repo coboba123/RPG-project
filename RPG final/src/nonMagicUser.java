@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 /**
  * 
@@ -11,19 +11,24 @@ public class nonMagicUser implements Character
 {
 
 	private String myName, myDesc;
-	private int myHP, myMoney, mySpeed, baseAtt, baseDef;
-	private ArrayList<Item> bag = new ArrayList<Item>(1);
-	private boolean hasMap;
+	private int myHP, myMoney, mySpeed, baseAtt, baseDef, potions;
+	private boolean hasMap, hasKey;
 	private Armor myArmor;
 	private Weapon myWeapon;
 
 	public nonMagicUser(String name, String desc)
 	{
+		myArmor = null;
+		myWeapon = null;
 		myName = name;
 		myDesc = desc;
 		myHP = 100;
 		myMoney = 0;
-		setHasMap(false);
+		mySpeed = 5;
+		hasMap = false;
+		baseAtt = 16;
+		baseDef = 7;
+		potions = 2;
 	}
 
 	/*
@@ -103,11 +108,6 @@ public class nonMagicUser implements Character
 			return false;
 	}
 
-	public boolean noMP()
-	{
-		return true;
-	}
-
 	public String getDesc()
 	{
 		return myDesc;
@@ -148,38 +148,19 @@ public class nonMagicUser implements Character
 
 	}
 
-	@Override
-	public void addItem(Item item)
+	public void addPotion()
 	{
-		bag.add(item);
-
+		potions++;
 	}
 
-	private boolean subItem(Item item)
+	public boolean usePotion()
 	{
-		int i = 0;
-		while ((Item) bag.get(i) != item && i < bag.size())
+		if (potions != 0)
 		{
-			i++;
-		}
-		if (i != bag.size() && (Item) bag.get(i) == item)
-		{
-			bag.remove(i);
+			potions--;
 			return true;
 		} else
 			return false;
-
-	}
-
-	@Override
-	public boolean useItem(Item item)
-	{
-		if (subItem(item))
-		{
-			return true;
-		} else
-			return false;
-
 	}
 
 	public boolean isHasMap()
@@ -202,7 +183,7 @@ public class nonMagicUser implements Character
 		return myArmor;
 	}
 
-	public void setMyArmor(Armor armor)
+	public void setArmor(Armor armor)
 	{
 		myArmor = armor;
 	}
@@ -222,10 +203,10 @@ public class nonMagicUser implements Character
 	{
 		if (myWeapon != null)
 		{
-			return baseAtt + myWeapon.getAtt();
+			return (baseAtt + myWeapon.getAtt()) - (int) Math.random() * 4;
 		} else
 		{
-			return baseAtt;
+			return baseAtt - (int) Math.random() * 4;
 		}
 	}
 
@@ -247,11 +228,21 @@ public class nonMagicUser implements Character
 	@Override
 	public String getItems()
 	{
-		String temp = "";
-		for (int i = 0; i < bag.size(); i++)
-		{
-			temp += bag.get(i).getName() + " ";
-		}
-		return temp;
+		if (potions != 0)
+			return "Potions X" + potions;
+		else
+			return "None";
 	}
+
+	@Override
+	public void setHasKey(boolean key)
+	{
+		hasKey = key;
+	}
+	
+	public boolean hasKey()
+	{
+		return hasKey;
+	}
+
 }

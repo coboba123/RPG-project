@@ -16,12 +16,14 @@ public class ShopGui
 
 	private JFrame frame;
 	private Character myCharacter;
+	private boolean map;
 
 	/**
 	 * Create the application.
 	 */
-	public ShopGui(Character character)
+	public ShopGui(Character character, boolean map)
 	{
+		this.map = map;
 		myCharacter = character;
 		initialize();
 
@@ -35,12 +37,12 @@ public class ShopGui
 		String words = "";
 		frame = new JFrame();
 		frame.setAlwaysOnTop(true);
-		getFrame().setBounds(800, 0, 500, 658);
+		getFrame().setBounds(800, 0, 482, 612);
 		getFrame().setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
-		textArea.setBounds(38, 394, 413, 22);
+		textArea.setBounds(10, 394, 441, 22);
 		getFrame().getContentPane().add(textArea);
 		words = "Current Money: " + myCharacter.getMoney();
 		textArea.setText(words);
@@ -58,7 +60,7 @@ public class ShopGui
 		}
 		getFrame().getContentPane().setLayout(null);
 		JLabel label = new JLabel(new ImageIcon(image));
-		label.setBounds(38, 0, 413, 385);
+		label.setBounds(10, 0, 413, 385);
 		getFrame().getContentPane().add(label);
 
 		JButton btnHPPotion = new JButton("HP Potion - 200G (50 HP)");
@@ -69,7 +71,7 @@ public class ShopGui
 				if (myCharacter.getMoney() >= 200)
 				{
 					myCharacter.subMoney(200);
-					myCharacter.addItem(new Potion("HP Potion", "Heals your character for 50", 50));
+					myCharacter.addPotion();
 					textArea.setText("Current Money: " + myCharacter.getMoney());
 				} else
 				{
@@ -88,7 +90,7 @@ public class ShopGui
 			{
 				if (myCharacter.getMoney() >= 500)
 				{
-					myCharacter.subMoney(200);
+					myCharacter.subMoney(500);
 					myCharacter.setHasMap(true);
 					textArea.setText("Current Money: " + myCharacter.getMoney());
 				} else
@@ -96,10 +98,14 @@ public class ShopGui
 					textArea.setText("Current Money: " + myCharacter.getMoney()
 							+ "   You don't have enough money!");
 				}
+				btnMap.setEnabled(false);
 			}
 		});
-		btnMap.setBounds(10, 527, 441, 39);
+		btnMap.setBounds(10, 477, 441, 39);
 		getFrame().getContentPane().add(btnMap);
+
+		if (map)
+			btnMap.setEnabled(false);
 
 		JButton btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener()
@@ -109,7 +115,7 @@ public class ShopGui
 				getFrame().setVisible(false);
 			}
 		});
-		btnExit.setBounds(10, 577, 441, 39);
+		btnExit.setBounds(10, 527, 441, 39);
 		getFrame().getContentPane().add(btnExit);
 
 	}

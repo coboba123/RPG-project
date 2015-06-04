@@ -1,6 +1,23 @@
+3
 Kha'Zix
 A disgusting Bug Creature with sharp claws and even sharper fangs.
-60
+bug.png
+40
 4
 15
 4
+Gargoyle
+A creature that appears to be made of stone, yet has fierce strength and speed.
+Gargoyle.png
+60
+5
+12
+9
+Zombie
+A figure that appears to have been human at one point, but is only a walking corpse now.
+zombie.png
+30
+4
+8
+2
+

@@ -2,10 +2,8 @@ import java.awt.EventQueue;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
-import javax.swing.JTextPane;
 import javax.swing.JTextField;
 
-import java.awt.TextField;
 import java.awt.Font;
 
 import javax.swing.JTextArea;
@@ -104,7 +102,8 @@ public class IntroGui
 			public void actionPerformed(ActionEvent e)
 			{
 				isMagic = rdbtnMagic.isSelected();
-				name = txtrWhatIsYour.getText();
+				name = textField.getText();
+				name.trim();
 				frame.setVisible(false);
 				Gui gui = new Gui(name, isMagic);
 				gui.setVisible();

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 /**
  * @author Daniel
@@ -6,19 +6,24 @@ import java.util.ArrayList;
 public class MagicUser implements Character
 {
 	private String myName, myDesc;
-	private int myHP, myMoney, baseAtt, baseDef, mySpeed;
-	private ArrayList<Item> bag = new ArrayList<Item>(1);
-	private boolean hasMap;
+	private int myHP, myMoney, baseAtt, baseDef, mySpeed, potions;
+	private boolean hasMap, hasKey;
 	private Armor myArmor;
 	private Weapon myWeapon;
+	
 
 	public MagicUser(String name, String desc)
 	{
 		myName = name;
 		myHP = 80;
-		myMoney = 0;
+		myMoney = 800;
 		hasMap = false;
 		mySpeed = 5;
+		myDesc = desc;
+		potions = 3;
+		baseAtt = 20;
+		baseDef = 4;
+		setHasKey(false);
 	}
 
 	/*
@@ -90,7 +95,6 @@ public class MagicUser implements Character
 			myHP = 0;
 	}
 
-
 	@Override
 	public boolean isDead()
 	{
@@ -100,7 +104,6 @@ public class MagicUser implements Character
 			return false;
 	}
 
-	
 	public String getDesc()
 	{
 		return myDesc;
@@ -142,39 +145,20 @@ public class MagicUser implements Character
 
 	}
 
-	@Override
-	public void addItem(Item item)
+	public void addPotion()
 	{
-		bag.add(item);
-
+		potions++;
 	}
 
-	private boolean subItem(Item item)
+	public boolean usePotion()
 	{
-		int i = 0;
-		while ((Item) bag.get(i) != item && i < bag.size())
+		if (potions != 0)
 		{
-			i++;
-		}
-		if (i != bag.size() && (Item) bag.get(i) == item)
-		{
-			bag.remove(i);
-			return true;
-		} else
-			return false;
-
-	}
-
-	@Override
-	public boolean useItem(Item item)
-	{
-		if (subItem(item))
-		{
+			potions--;
 			return true;
 		}
 		else
 			return false;
-
 	}
 
 	public boolean isHasMap()
@@ -217,10 +201,10 @@ public class MagicUser implements Character
 	{
 		if (myWeapon != null)
 		{
-			return baseAtt + myWeapon.getAtt();
+			return (baseAtt + myWeapon.getAtt()) - (int) Math.random() * 6;
 		} else
 		{
-			return baseAtt;
+			return baseAtt - (int) Math.random() * 6;
 		}
 	}
 
@@ -242,8 +226,22 @@ public class MagicUser implements Character
 	@Override
 	public String getItems()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		if (potions != 0)
+			return "Potions X" + potions;
+		else
+			return "None";
 	}
+
+	public boolean hasKey()
+	{
+		return hasKey;
+	}
+
+	public void setHasKey(boolean hasKey)
+	{
+		this.hasKey = hasKey;
+	}
+	
+	
 
 }

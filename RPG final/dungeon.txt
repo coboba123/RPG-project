@@ -10,37 +10,27 @@ none
 none
 none
 a dark and stormy room.
-90
+60
 a dark and stormy room.
-80
+50
 a dark and stormy room.
-80
+50
 a dark and stormy room. there appears to be a chest in the center
-80
+50
 none
 none
 a dark and stormy room. there appears to be a chest in the center
 60
 a dark and stormy room.
-80
+50
 a dark and stormy room.
-90
+50
 a dark and stormy room. there is a giant locked door to the east.
 100
 The Dungeon Master's Room.
 0
 a dark and stormy room.
-60
-none
-none
-none
-none
-a dark and stormy room.
-70
-none
-none
-a dark and stormy room.
-60
+40
 none
 none
 none
@@ -48,14 +38,24 @@ none
 a dark and stormy room.
 50
 none
+none
 a dark and stormy room.
-50
-a dark and stormy room.
-60
+40
+none
+none
 none
 none
 a dark and stormy room.
+30
+none
+a dark and stormy room.
+40
+a dark and stormy room.
 50
+none
+none
+a dark and stormy room.
+30
 a dark and stormy room.
 40
 The Room divides into four directions. In the center appears to be a Demonic shopkeeper. He appears to be friendly.
@@ -67,14 +67,14 @@ a dark and stormy room
 none
 none
 none
-It appears to be a dead end with the way back to the North. A key was found on the Monster's body here.
+It appears to be a dead end with the way back to the North. A key is laying on the floor next to a slain monster.
 100
 none
 The Entrance to the dungeon. The Dungeon Master here is a threat to the world, you must defeat him.
 0
 none
 a dark and stormy room. there appears to be a chest here. 
-60
+50
 none
 none
 none
