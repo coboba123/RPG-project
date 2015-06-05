@@ -3,12 +3,6 @@
  */
 public class Weapon implements Item
 {
-
-	/*
-	 * (non-Javadoc)
-	 * @see Item#setName(java.lang.String)
-	 */
-
 	// name of weapon
 	private String myName;
 
@@ -22,15 +16,24 @@ public class Weapon implements Item
 		attValue = att;
 	}
 
-	// sets name of weapon
+	/**
+	 * sets name of weapon
+	 * 
+	 * @param name: a String used to set the weapon's name
+	 * 
+	 * @see Item#setName(java.lang.String)
+	 */
 	public void setName(String name)
 	{
 		myName = name;
 	}
 
-	/*
-	 * returns name of weapon
+	/**
+	 * gets the name of the weapon
+	 * 
 	 * @see Item#getName()
+	 * 
+	 * @returns name of weapon
 	 */
 	@Override
 	public String getName()
@@ -38,13 +41,21 @@ public class Weapon implements Item
 		return myName;
 	}
 
-	// returns attack value of weapon
+	/** 
+	 * gets the attack value of the weapon
+	 * 
+	 * @return attack value of weapon
+	 */
 	public int getAtt()
 	{
 		return attValue;
 	}
 
-	// sets attack value of weapon
+	/**
+	 *  sets attack value of weapon
+	 * 
+	 * @param att: The attack value you are setting the weapon to.
+	 */
 	public void setAtt(int att)
 	{
 		attValue = att;

@@ -11,12 +11,18 @@ public class MagicUser implements Character
 	private Armor myArmor;
 	private Weapon myWeapon;
 	
-
+	/**
+	 * Constructor of the MagicUser class that holds all the base values of the character
+	 * 
+	 * @param name: The name of the character
+	 * 
+	 * @param desc: The description of the chracter
+	 */
 	public MagicUser(String name, String desc)
 	{
 		myName = name;
 		myHP = 80;
-		myMoney = 800;
+		myMoney = 0;
 		hasMap = false;
 		mySpeed = 5;
 		myDesc = desc;
@@ -26,9 +32,12 @@ public class MagicUser implements Character
 		setHasKey(false);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Gets the name of the user
+	 * 
 	 * @see Character#getName()
+	 * 
+	 * @return a string
 	 */
 	@Override
 	public String getName()
@@ -36,8 +45,11 @@ public class MagicUser implements Character
 		return myName;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * sets the character's name
+	 * 
+	 * @param name: a string to set name
+	 * 
 	 * @see Character#setName()
 	 */
 	@Override
@@ -46,9 +58,12 @@ public class MagicUser implements Character
 		myName = name;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * gets the current HP of the user
+	 * 
 	 * @see Character#getHP()
+	 * 
+	 * @return an int value that represents current hp
 	 */
 	@Override
 	public int getHP()
@@ -56,8 +71,11 @@ public class MagicUser implements Character
 		return myHP;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * sets HP to an amount that is no greater than the max HP
+	 * 
+	 * @param HP: an int value that represents HP that the character is being set to
+	 * 
 	 * @see Character#setHP()
 	 */
 	@Override
@@ -69,8 +87,11 @@ public class MagicUser implements Character
 			myHP = HP;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * adds HP to the character but the added HP will not allow the character to exceed his max HP
+	 * 
+	 * @param HP: an int value that is being added
+	 * 
 	 * @see Character#addHP(int)
 	 */
 	@Override
@@ -82,8 +103,10 @@ public class MagicUser implements Character
 			myHP = 80;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * subtracts HP to the character but the subtracted HP can't go below 0
+	 * 
+	 * 
 	 * @see Character#subHP(int)
 	 */
 	@Override
@@ -95,6 +118,12 @@ public class MagicUser implements Character
 			myHP = 0;
 	}
 
+	 /**
+	  * returns a boolean value to see if character is dead
+	  * returns true if character HP is less than or equal to 0
+	  * 
+	  * @return boolean Returns the boolean value of character's death status
+	  */
 	@Override
 	public boolean isDead()
 	{
@@ -104,16 +133,31 @@ public class MagicUser implements Character
 			return false;
 	}
 
+	/**
+	  * returns the description of the character
+	  * 
+	  * @return String Returns the description of the character
+	  */
 	public String getDesc()
 	{
 		return myDesc;
 	}
 
+	 /**
+	  * sets the description of the character
+	  * 
+	  * @param desc the new character description
+	  */
 	public void setDesc(String desc)
 	{
 		myDesc = desc;
 	}
 
+	 /**
+	  * returns the value of money in the character's possession
+	  * 
+	  * @return int Returns the amount of money that the character has
+	  */
 	@Override
 	public int getMoney()
 	{
@@ -121,6 +165,11 @@ public class MagicUser implements Character
 		return myMoney;
 	}
 
+	/**
+	  * sets the amount of money in the character's possession
+	  * 
+	  * @param money new amount of money in the character's possession
+	  */
 	@Override
 	public void setMoney(int money)
 	{
@@ -128,6 +177,12 @@ public class MagicUser implements Character
 
 	}
 
+	 /**
+	  * subtracts money from the character's "wallet"
+	  * used when making a purchase in the shop
+	  * 
+	  * @param money amount of money to be taken out of the character's "wallet"
+	  */
 	@Override
 	public void subMoney(int money)
 	{
@@ -135,6 +190,12 @@ public class MagicUser implements Character
 
 	}
 
+	 /**
+	  * adds money to the character's "wallet"
+	  * used when gaining money from battle
+	  * 
+	  * @param money amount of money to be added to the character's "wallet"
+	  */
 	@Override
 	public void addMoney(int money)
 	{
@@ -145,11 +206,18 @@ public class MagicUser implements Character
 
 	}
 
+	/**
+	  * Increases the character's potion count by one
+	  */
 	public void addPotion()
 	{
 		potions++;
 	}
 
+	 /**
+	  * Decreases the character's potion count by one (if the count is greater than 0)
+	  * @return a true or false statement
+	  */
 	public boolean usePotion()
 	{
 		if (potions != 0)
@@ -161,41 +229,82 @@ public class MagicUser implements Character
 			return false;
 	}
 
+	 /**
+	  * Returns a boolean value for whether or not the character is in possession of a map
+	  * 
+	  * @return boolean Returns boolean answer for whether or not character has a map 
+	  */
 	public boolean isHasMap()
 	{
 		return hasMap;
 	}
 
+	/**
+	  * Sets boolean value for whether or not the character is in possession of a map
+	  * 
+	  * @param hasMap New boolean value for possession of map status
+	  */
 	public void setHasMap(boolean hasMap)
 	{
 		this.hasMap = hasMap;
 	}
 
+	/**
+	  * Returns the character's speed value
+	  * Used when considering the probability of missing when attacking a monster
+	  * 
+	  * @return int Returns the speed of the character
+	  */
 	public int getSpeed()
 	{
 		return mySpeed;
 	}
 
+	 /**
+	  * Returns the character's armor object
+	  * 
+	  * @return Armor Returns the character's armor object
+	  */
 	public Armor getArmor()
 	{
 		return myArmor;
 	}
 
+	 /**
+	  * Sets a new armor object for the character
+	  * 
+	  * @param armor New armor for the character
+	  */
 	public void setArmor(Armor armor)
 	{
 		myArmor = armor;
 	}
 
+	 /**
+	  * Returns the character's weapon object
+	  * 
+	  * @return Weapon Returns the character's weapon object
+	  */
 	public Weapon getWeapon()
 	{
 		return myWeapon;
 	}
 
+	 /**
+	  * Sets a new armor object for the character
+	  * 
+	  * @param armor New armor for the character
+	  */
 	public void setWeapon(Weapon weapon)
 	{
 		myWeapon = weapon;
 	}
 
+	 /**
+	  * Returns the attack value of the character
+	  * 
+	  * @return int The attack value of the character
+	  */
 	@Override
 	public int getDamage()
 	{
@@ -208,6 +317,11 @@ public class MagicUser implements Character
 		}
 	}
 
+	 /**
+	  * Returns the defense value of the character
+	  * 
+	  * @return int The defense value of the character
+	  */
 	@Override
 	public int getDef()
 	{
@@ -218,11 +332,21 @@ public class MagicUser implements Character
 			return baseDef;
 	}
 
+	 /**
+	  * Returns a boolean value as to whether or not the character is of a magic type
+	  * 
+	  * @return boolean Returns whether or not the character is a magic type
+	  */
 	public boolean isMagic()
 	{
 		return true;
 	}
 
+	 /**
+	  * Returns the items in the character's possessions in a string
+	  * 
+	  * @return String List of the characters possessions
+	  */
 	@Override
 	public String getItems()
 	{
@@ -232,11 +356,21 @@ public class MagicUser implements Character
 			return "None";
 	}
 
+	 /**
+	  * Returns the boolean value for whether or not the character has a key
+	  * 
+	  * @return boolean Returns whether or not the character has a key
+	  */
 	public boolean hasKey()
 	{
 		return hasKey;
 	}
 
+	 /**
+	  * Sets a new value for whether or not the character is in possession of a key
+	  * 
+	  * @param key New boolean value for the character's possession of a key
+	  */
 	public void setHasKey(boolean hasKey)
 	{
 		this.hasKey = hasKey;
