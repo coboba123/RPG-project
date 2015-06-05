@@ -230,11 +230,11 @@ public class BattleGui
 	}
 
 	/**
-	 * An example of a method - replace this comment with your own
+	 * A method called whenever the character is attacked
 	 * 
-	 * @param y
-	 *            a sample parameter for a method
-	 * @return the sum of x and y
+	 * @param The base damage that the enemy will deal to the character
+	 *            
+	 * @return The remaining HP without armor reductions when the character gets hit
 	 */
 	public int attackCharacter(int eDamage)
 	{
@@ -252,13 +252,20 @@ public class BattleGui
 		return myCharacter.getHP() - eDamage;
 	}
 
+	/**
+	 * A method called whenever the enemy is attacked
+	 * 
+	 * @param The base damage that the enemy will deal to the enemy
+	 *            
+	 * @return The remaining HP without armor reductions when the enemy gets hit
+	 */
 	public int attackEnemy(int cDamage)
 	{
 		if (cDamage != 0)
 		{
 			if (isCritical() == true)
 			{
-				battleText1 += "You attacked and it was a criticle hit for " + ((cDamage * 2))
+				battleText1 += "You attacked and it was a critical hit for " + ((cDamage * 2))
 						+ " damage!\n\n";
 				return myEnemy.getHP() - 2 * cDamage;
 			}
@@ -268,6 +275,11 @@ public class BattleGui
 			return 0;
 	}
 
+
+	/**
+	 * This method goes through a single attack from the player and the enemy. The method accounts for the order of attacking by comparing the speed of the player and the enemy.
+	 * 
+	 */
 	public void fight()
 	{
 		if (myCharacter.getSpeed() > myEnemy.getSpeed())
@@ -324,19 +336,29 @@ public class BattleGui
 		}
 	}
 
+	/**
+	 * This method determines if a hit is a critical
+	 * 
+	 * @return a true or false statement 
+	 */
 	public boolean isCritical()
 	{
-		if (Math.random() <= 0.1)
+		if (Math.random() <= 0.1) //rng. 10% chance of landing a critical
 			return true;
 		else
-			return false;
+			return false; //not a critical, regular hit
 	}
 
+	/**
+	 * This method determines if a hit is a miss
+	 * 
+	 * @return a true or false statement
+	 */
 	public boolean isMiss()
 	{
-		if (Math.random() >= .95)
+		if (Math.random() >= .95) //rng. 5% chance of missing
 			return true;
 		else
-			return false;
+			return false; //not a miss, hit lands
 	}
 }
