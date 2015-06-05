@@ -70,6 +70,7 @@ public class Gui
 	 */
 	private void initialize()
 	{
+		//Creates map
 		Map map = new Map("dungeon.txt");
 		if (magic)
 			map.setMagicItems();
